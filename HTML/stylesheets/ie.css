@@ -1,0 +1,8 @@
+.buttonWrapper, .buttonWrapper:hover, .buttonWrapper:focus, .buttonWrapper:active { border: 0; background: transparent; }
+
+#header #homeLink, #header #searchBox { margin: -2px; padding: 7px   14px; background: transparent url("../images/header-buttons-ie.gif") no-repeat; }
+#header #homeLink:hover, #header #homeLink:focus { background-position: 0 -28px; background-color: transparent; }
+#header #homeLink:active { background-position: 0 -56px; background-color: transparent; }
+#header #searchBox { background-position: 0 -84px; }
+
+#content .caption img { width: auto; }
