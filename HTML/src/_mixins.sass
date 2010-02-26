@@ -1,0 +1,214 @@
+@import compass/utilities
+
+!heightDefault          = 22px
+!bgColorNormalDefault   = #000
+!bgColorActiveDefault   = !bgColorNormalDefault + #666
+!fgColorNormalDefault   = #000
+!fgColorActiveDefault   = !fgColorNormalDefault
+!borderColorDefault     = #000
+!borderRadiusDefault    = !heightDefault / 2
+!borderWidthDefault     = 0
+!fontSizeDefault        = floor(!heightDefault / 1.5714285714)
+!widthDefault           = !heightDefault * 5
+!changeActionDefault    = "active"
+!shadowOffsetDefault    = 1px
+
+!defaultShadowOpacity   = 0.35
+
+!defaultGradientTopColor= rgba(255,255,255,0.65)
+!defaultGradientBtmColor= rgba(255,255,255,0.35)
+
+// Font Mixins
+=fontGeorgia
+    font-family: Georgia, "Times New Roman", Times, serif
+
+=fontGillSans
+    font-family: "Gill Sans", "Gill Sans MT", Helvetica, "Bitstream Vera Sans", Arial, Geneva, sans-serif
+
+=fontGillSansLight
+    font-family: "GillSans-Light", "Gill Sans Light", "Gill Sans", "Gill Sans MT", Helvetica, "Bitstream Vera Sans", Arial, Geneva, sans-serif
+    font-weight: 300
+    
+=fontHelveticaNeue
+    font-family: "Helvetica Neue", Helvetica, "Bitstream Vera Sans", Arial, Geneva, sans-serif
+
+=fontHelveticaNeueLight
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, "Bitstream Vera Sans", Arial, Geneva, sans-serif
+    font-weight: 300
+
+=fontHelveticaNeueUltraLight
+    font-family: "HelveticaNeue-UltraLight", "Helvetica Neue UltraLight", "Helvetica Neue", Helvetica, "Bitstream Vera Sans", Arial, Geneva, sans-serif
+    font-weight: 100
+
+=fontPalatino
+    font-family: Palatino, "Palatino Linotype", "Bitstream Vera Serif", "Times New Roman", Times, serif
+
+// Effect Mixins
+=webKitTransition(!property = "background-color", !duration = 0.25s, !timingFunction = "ease-in-out")
+    -webkit-transition= !property
+    -webkit-transition-duration= !duration
+    -webkit-transition-timing-function= !timingFunction
+    
+=etchedText(!offset = 1px, !opacity = !defaultShadowOpacity)
+    text-shadow= "0" !offset (!offset - 1) * 2 "rgba(255,255,255,"!opacity")"
+    
+=shadowedText(!offset = 1px, !opacity = !defaultShadowOpacity)
+    text-shadow= "0" !offset (!offset - 1) * 2 "rgba(0,0,0,"!opacity")"
+
+=borderRadius(!radius)
+    -webkit-border-radius= !radius
+    -moz-border-radius= !radius
+    border-radius= !radius
+
+=webKitGradient(!topColor = !defaultGradientTopColor, !btmColor = !defaultGradientBtmColor)
+    background-image= "-webkit-gradient(linear, left top, left bottom, from("!topColor"), to("!btmColor"))"
+    background-repeat: repeat-x
+    
+// AOMS Button Style Mixins
+
+=button(!height = !heightDefault, !width = !widthDefault, !borderWidth = !borderWidthDefault, !fontSize = !fontSizeDefault)
+    !interiorHeight     = !height - (!borderWidth * 2)
+    !borderRadiusAmount = !interiorHeight / 2
+    !interiorWidth      = !width - (!borderWidth * 2) - !borderRadiusAmount
+    +borderRadius(!borderRadiusAmount)
+    +etchedText
+    +inline-block
+    @if (!borderWidth > 0)
+        border-width= !borderWidth
+        border-style: solid
+    @else
+        border: none
+    font-size= !fontSize
+    height= !fontSize
+    line-height= !fontSize
+    padding= (!interiorHeight - !fontSize) / 2 " " !borderRadiusAmount
+    text-align: center
+    text-decoration: none
+    width= !interiorWidth
+    
+=buttonIEFixes(!borderWidth = !borderWidthDefault, !imagePadding = 2px, !height = !heightDefault, !width = !widthDefault, !fontSize = !fontSizeDefault)
+    !interiorHeight     = !height - (!borderWidth * 2)
+    !borderRadiusAmount = !interiorHeight / 2
+    margin= -!imagePadding
+    padding= ((!interiorHeight - !fontSize) / 2 + !imagePadding + 2 * !borderWidth) " " (!borderRadiusAmount + !imagePadding + 2 * !borderWidth)
+
+=buttonWrapper(!borderWidth = !borderWidthDefault, !borderColor = !borderColorDefault, !height = !heightDefault, !borderRadius = !borderRadiusDefault)
+    +inline-block
+    +borderRadius(!borderRadius)
+    @if (!borderWidth > 0)
+        border= !borderWidth "solid" !borderColor
+        background-color= !borderColor
+    @else
+        border: none
+    -webkit-box-shadow: 0 1px 2px rgba(255,255,255,0.35)
+                
+=header(!height = 84px, !buttonHeight = !height / 3.5, !fontSize = !height / 1.75)
+    background: #262626 url("../img/header-bg.gif") repeat-x bottom
+    background-position: bottom
+    border-bottom: 1px solid #000
+    height= !height - 1
+    text-align: center
+    text-transform: uppercase
+    
+    h1 a
+        +inline-block
+        +webKitTransition("text-shadow")
+        color: #fff
+        height: 100%
+        line-height= !height - 1
+        padding: 0 32px
+        text-decoration: none
+        text-shadow: 0 0 4px #fff
+        
+        &:hover, &:focus
+            background: url("../img/snapback5.svg") no-repeat right center
+            text-shadow: 0 0 8px #fff
+        
+        span#small-text
+            +fontGillSansLight
+            float: left
+            font-size= !fontSize / 2.4
+            padding-right= !fontSize / 4
+        
+        span#name
+            +fontHelveticaNeueUltraLight
+            font-size= !fontSize
+    
+    .buttonWrapper
+        position: absolute
+        top= (!height - !buttonHeight) / 2
+        
+    #resumeLinkSpan
+        left= !fontSize
+        
+    #contactLinkSpan
+        right= !fontSize
+        
+=galleryalbums(!height = 337px, !columnBlueprintWidth = 8, !itemsPerColumn = 2)
+    !itemHeight = !height / !itemsPerColumn
+    +container
+    background-position: bottom
+    background-repeat: repeat-x
+    height= !height
+    overflow: hidden
+    position: relative
+
+    #leftalbums, #rightalbums
+        background-color: #404040
+        background-repeat: repeat-y
+        display: block
+        height= !height
+        position: absolute
+        top: 0
+        overflow: hidden
+        z-index: 1
+        
+        li
+            background-position: center
+            background-repeat: no-repeat
+        
+        li a
+            +button(!itemHeight, 0, rgba(255,255,255,0.75), rgba(255,255,255,0.35), #000, #fff, 0, 32px, 100%, "hover", 2px)
+            display: block
+            +fontGillSansLight
+            border-top: 1px solid #000
+            text-transform: uppercase
+            text-align: center
+            +webKitGradient(rgba(0,0,0,0.35), rgba(0,0,0,0.65))
+
+            &:hover
+                text-shadow: 0 2px 1px rgba(0,0,0,0.65)
+            
+        li:first-child a
+            border-top: 0
+    
+    #leftalbums
+        +column(!columnBlueprintWidth)
+        border-right: 1px solid #000
+        left: 0
+    
+    #rightalbums
+        +column(!columnBlueprintWidth, true)
+        border-left: 1px solid #000
+        right: 0
+        
+    #centerpicture
+        text-align: center
+        width: 100%
+        
+    #centerpicture img
+        height= !height
+        width: auto
+        
+=highlight
+    background: #cccc99
+    color: #000
+    +borderRadius(8px)
+    padding: 8px
+    text-align: center
+    +etchedText
+    
+=opener
+    font-size: 20px
+    color: #fff
+    +fontGillSansLight

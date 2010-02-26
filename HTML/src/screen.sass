@@ -1,0 +1,302 @@
+// Authored by Joe Kohlmann
+// These stylesheets use Compass <http://compass-style.org/>
+@import compass/reset
+@import compass/utilities
+@import compass/utilities/text/ellipsis.sass
+@import blueprint
+// Joe's Stuff
+@import _mixins.sass
+
+// This design's (numerous) parameters
+@import _parameters.sass
+
+body
+    +fontGillSans
+    background= !bgColorBody
+    font-size= !stdFontSize
+    margin: 0
+    min-width= !bodyWidth + 2 * !stdPadding
+    padding: 0
+
+.buttonWrapper
+    +buttonWrapper(1px, !redDeep)
+
+.button, #homeLink, #searchBox
+    +button()
+
+#headerWrap
+    background= image_url("bg-header.gif") "repeat-x"
+    width: 100%
+    height= !headerInteriorHeight
+    padding-bottom= !headerPadding
+    text-align: center
+    #header
+        margin: 0 auto
+        position: relative
+        width= !actualWidth
+    h1 a
+        +inline-block
+        +replace-text("logo-header.gif", "0", "16px")
+        width= !headerGraphicWidth
+        height= !headerInteriorHeight
+        margin: 0 auto
+    #homeLinkWrap, #searchForm
+        position: absolute
+        top= !headerButtonTopOffset
+    #homeLinkWrap
+        left= !headerSideOffset
+    #searchForm
+        right= !headerSideOffset
+        #searchSubmit
+            display: none
+    #searchBox
+        +fontGillSans
+        background= !bgColorNavButtonHover image_url("nav-buttons.gif") "no-repeat center -32px"
+        color= !textColor
+        text-align: left
+        &.placeholder
+            color= !textColorGray
+    #homeLink
+        background= !bgColorNavButton image_url("nav-buttons.gif") "no-repeat center -96px"
+        color= !textColor
+        text-transform: uppercase
+        &:hover, &:focus
+            background-position: center -128px
+        &:active
+            background-position: center -160px
+
+#navigation
+    +column(!blueprint_grid_columns)
+    +etchedText
+    +fontGillSans
+    background= image_url("bg-content.gif") "no-repeat top left"
+    // float: left
+    font-size= !interfaceFontSize
+    :margin
+        top=    -(!wrapperPadding + !stdPadding)
+        right=  -(!wrapperPadding + !stdPadding)
+        bottom= !stdPadding
+        left=   -(!wrapperPadding + !stdPadding)
+    :padding
+        top=    (!navMargin + !stdPadding)
+        right=  (!navMargin + !stdPadding)
+        bottom= 0
+        left=   (!navMargin + !stdPadding)
+    width= !bodyWidth - 2 * !navMargin
+    li
+        display: inline
+    a
+        background= image_url("nav-buttons.gif") "no-repeat -16px 0"
+        color= !textColor
+        float: left
+        height= !navButtonHeight
+        line-height= !navButtonHeight
+        margin-left= !navBorderWidth
+        text-align: center
+        text-decoration: none
+        text-transform: uppercase
+        width= !navLinkWidth
+        &:hover, &:focus
+            background-position= "-16px " -!navButtonHeight
+        &:active
+            background-position= "-16px " -(2 * !navButtonHeight)
+    li.first a
+        margin-left: 0
+        background-position: left top
+        &:hover, &:focus
+            background-position= "left " -!navButtonHeight
+        &:active
+            background-position= "left " -(2 * !navButtonHeight)
+    li.last a
+        background-position: right top
+        // Fixes a width rounding error with 1000px width and 6 items.
+        padding-right: 1px
+        &:hover, &:focus
+            background-position= "right  " -!navButtonHeight
+        &:active
+            background-position= "right " -(2 * !navButtonHeight)
+
+// "+ !stdPadding" accounts for the 16px margin in background images for shadow
+#wrapper
+    +container
+    +fontGeorgia
+    background= image_url("bg-content.gif") "repeat-y top right"
+    line-height= !stdLineHeight
+    :margin
+        top=    -(!headerPadding + !stdPadding)
+        right:  auto
+        bottom: 0
+        left:   auto
+    :padding
+        top=    (!wrapperPadding + !stdPadding)
+        right=  (!wrapperPadding + !stdPadding)
+        bottom: 0
+        left=   (!wrapperPadding + !stdPadding)
+    position: relative
+    text-align: left
+    z-index: 1
+    #introduction
+        +column(!blueprint_grid_columns)
+        p
+            margin= !wrapperPadding " 0"
+    #sidebar
+        +column(!sidebarCols)
+    #content
+        +column(!contentCols)
+        position: relative
+    #advertising
+        +column(!advertisingCols, true)
+        text-align: center
+        padding-bottom= !wrapperPadding
+        margin-bottom= -!wrapperPadding
+        img
+            margin-bottom= !stdPadding
+    #introduction p, p.intro
+        font-size= !largeFontSize
+    #introduction a, #content p a, #addendum a
+        color= !textColor
+        text-decoration: underline
+        &:focus
+            background= !bgColorBody
+            text-decoration: none
+            +borderRadius(4px)
+    h2
+        widows: 4
+        font-size= !titleFontSize
+        font-weight: normal
+        line-height= !titleLineHeight
+        text-align: center
+    h2, .caption, p
+        margin-bottom= !stdLineHeight
+    .meta
+        +fontGillSans
+        color= !textColorGray
+        margin= -!stdLineHeight " 0 " !wrapperPadding
+        text-align: center
+        text-transform: uppercase
+        dt, dd
+            display: inline
+        dd + dt
+            margin-left= !stdPadding
+    .author
+        color= !textColorGray
+        font-style: italic
+    .caption
+        color= !textColorGray
+        font-size= !interfaceFontSize
+        font-style: italic
+        text-align: center
+        img
+            +inline-block
+            height: auto
+            margin: 0 auto
+            max-width: 100%
+        p
+            margin: 0
+        &.left, &.right
+            max-width: 50%
+            width: 50%
+        &.left
+            +inline-block
+            float: left
+            margin-right= !stdPadding
+        &.right
+            +inline-block
+            float: right
+            margin-left= !stdPadding
+        &.quote
+            font-size= !largeFontSize
+        &.sidebar, &.author-pic
+            // Fix this
+            float: left
+            width= !sidebarWidth - !wrapperPadding - !stdPadding
+            position: absolute
+            left= -!sidebarWidth + !stdPadding
+        &.author-pic
+            text-align: right
+            width: none
+
+#sidebar
+    +etchedText
+    +fontGillSans
+    background= image_url("bg-sidebar.gif") "no-repeat"
+    font-size= !interfaceFontSize
+    :margin
+        top=    -(!stdPadding / 2)
+        right=  !wrapperPadding
+        bottom= !wrapperPadding
+        left=   -(!wrapperPadding + !stdPadding)
+    :padding
+        top=    !stdPadding
+        left=   (!wrapperPadding + !stdPadding)
+    dl#articleList
+        background= image_url("bg-sidebar.gif") "no-repeat 0 bottom"
+        margin-left= -(!wrapperPadding + !stdPadding)
+        padding-bottom= !stdPadding
+        dt, dd li a
+            background= image_url("bg-sidebar.gif") "repeat-y " -!sidebarWidth " 0"
+            color= !textColor
+            display: block
+            line-height= !sidebarLineHeight
+            padding= !sidebarLinkPadding
+            padding-left= !stdPadding
+            text-decoration: none            
+        dt
+            text-transform: uppercase
+            color= !textColorGray
+    
+        dd li a
+            padding-left= !stdPadding * 2
+            &:hover, &:focus, &.current
+                background-position= -(2 * !sidebarWidth) "0"
+    #addendum
+        margin-top= !wrapperPadding - !stdPadding
+
+#footer
+    // #footer gets different blueprint parameters...
+    // Make sure this is the last blueprint-related mixin used!
+    !blueprint_container_size = !bodyWidth - (2 * !stdPadding)
+    !blueprint_grid_margin  = !stdPadding
+    // Use this to calculate the width based on the total width.
+    // Or you can set !blueprint_grid_width to a fixed value and unset !blueprint_container_size -- it will be calculated for you.
+    !blueprint_grid_width       = (!blueprint_container_size + !blueprint_grid_margin) / !blueprint_grid_columns - !blueprint_grid_margin
+    +shadowedText(-1px)
+    +container
+    +fontGillSans
+    text-transform: uppercase
+    line-height= !footerLineHeight
+    clear: both
+    font-size= !interfaceFontSize
+    text-align: center
+    color= !bgColorBody
+    background= image_url("bg-footer.gif") "repeat-x"
+    height= 3 * !footerLineHeight
+    overflow: hidden
+    padding= !stdPadding
+    margin= "0 " -!wrapperPadding
+    p
+        margin: 0
+        
+    a
+        color: #fff
+        text-decoration: underline
+        
+    #leftInfo
+        +column(11)
+        text-align: right
+        
+    #centerInfo
+        +column(10)
+
+    #rightInfo
+        +column(11, true)
+        text-align: left
+        padding= (!footerLineHeight / 2) " 0"
+        
+    #centerInfo
+        text-align: center
+        
+    #contact-email
+        height: 17px
+        line-height: 0
+        margin-left: -2px

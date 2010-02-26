@@ -1,0 +1,87 @@
+// These parameters are separate from screen.sass for convenience.
+
+//////// Colors ////////
+!bgColorBody     = #ccc
+!redBase         = #ff0000
+!redBorder       = !redBase - #b30000
+!redDeep         = !redBase - #990000
+!textColor       = #000
+!textColorFooter = !bgColorBody
+!textColorGray   = #666
+!textColorWhite  = #fff
+
+//////// Unused Colors (provided for design reference) ////////
+!bgColorFooter          = #333
+!bgColorNavButton       = #e5e5e5
+!bgColorNavButtonActive = #ccc
+!bgColorNavButtonHover  = #fff
+!bgColorWrapper         = #fff
+
+//////// Font & Line Height ////////
+!interfaceFontSize = 14px
+!stdFontSize       = 16px
+!largeFontSize     = !stdFontSize * 1.25
+!titleFontSize     = !stdFontSize * 3.5
+!stdLineHeight     = !stdFontSize * 1.5
+!titleLineHeight   = !titleFontSize * 1.5
+!footerLineHeight  = 17px
+
+//////// Spacing & Dimensions ////////
+// Many graphics, such as #content's background, contain a uniform amount of
+// spacing to account for drop shadows.  !stdPadding defines that amount.
+!stdPadding = 16px
+
+//// body ////
+!actualWidth = 1000px
+!bodyWidth = !actualWidth - !stdPadding * 2
+
+//// .button and .buttonWrapper ////
+!buttonHeight      = 22px
+!buttonBorderWidth = 0
+
+//// #wrapper ////
+!wrapperPadding = !stdPadding * 2
+!wrapperWidth = !bodyWidth - (2 * !wrapperPadding)
+
+//// #header ////
+!headerGraphicWidth    = 509px
+!headerHeight          = 116px
+// Defines the number of pixels to move #wrapper up so that it overlaps #header.
+!headerPadding         = 20px
+// Defines the correct height to assign to #header (accounts for the padding).
+!headerInteriorHeight  = !headerHeight - !headerPadding
+// Defines the distance from the top that #header's buttons must be to appear vertically centered.
+!headerButtonTopOffset = (!headerInteriorHeight - (!buttonHeight + 2 * !buttonBorderWidth)) / 2
+// !headerSideOffset      = (!bodyWidth - !headerGraphicWidth) / 4 - (!widthDefault / 2)
+!headerSideOffset      = !wrapperPadding * 2
+
+//// #navigation ////
+// The width of the gap between each navigation bar link.
+!navBorderWidth  = 1px
+!navButtonHeight = 32px
+!navMargin       = !stdPadding / 4
+// Set to the number of links in the navigation bar.
+!navLinkCount    = 6
+!navLinkWidth    = (!bodyWidth - 2 * !navMargin - (!navLinkCount - 1)) / !navLinkCount
+
+//// #sidebar ////
+!sidebarLinkPadding = 4px
+!sidebarLineHeight  = !interfaceFontSize + 8
+// This value is based on how wide Blueprint makes the sidebar column;
+// it is arbitrarily assigned here and should be manually measured and updated.
+!sidebarWidth       = 250px
+
+//////// Blueprint Grid Parameters ////////
+// Here is where you can define your constants for your application and to configure the blueprint framework.
+// Feel free to delete these if you want keep the defaults:
+!blueprint_grid_columns = 32
+!blueprint_container_size = !wrapperWidth
+!blueprint_grid_margin  = !wrapperPadding
+// Use this to calculate the width based on the total width.
+// Or you can set !blueprint_grid_width to a fixed value and unset !blueprint_container_size -- it will be calculated for you.
+!blueprint_grid_width   = (!blueprint_container_size + !blueprint_grid_margin) / !blueprint_grid_columns - !blueprint_grid_margin
+
+//// Sidebar Column Widths for Blueprint ////
+!sidebarCols     = 8
+!advertisingCols = 5
+!contentCols     = !blueprint_grid_columns - (!sidebarCols + !advertisingCols)

@@ -1,0 +1,29 @@
+// Authored by Joe Kohlmann
+// Fixes for Internet Explorer
+@import _mixins.sass
+@import _parameters.sass
+
+.buttonWrapper
+    &, &:hover, &:focus, &:active
+        border: 0
+        background: transparent
+
+// Pre-rendered button image has a 2px padding around it.
+#header
+    #homeLink, #searchBox
+        +buttonIEFixes(1px, 2px)
+        background: transparent url("../images/header-buttons-ie.gif") no-repeat
+
+    #homeLink
+        &:hover, &:focus
+            background-position: 0 -28px
+            background-color: transparent
+    
+        &:active
+            background-position: 0 -56px
+            background-color: transparent
+    
+    #searchBox
+        background-position: 0 -84px
+#content .caption img
+    width: auto
