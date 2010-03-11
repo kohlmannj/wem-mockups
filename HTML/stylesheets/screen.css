@@ -18,19 +18,16 @@ img a { border: none; }
 
 body { font-family: "Gill Sans", "Gill Sans MT", Helvetica, "Bitstream Vera Sans", Arial, Geneva, sans-serif; background: #cccccc; font-size: 16px; margin: 0; min-width: 1000px; padding: 0; }
 
-.buttonWrapper { zoom: 1; display: inline; display: -moz-inline-box; display: inline-block; vertical-align: top; -webkit-border-radius: 11px; -moz-border-radius: 11px; border-radius: 11px; border: 1px solid #660000; background-color: #660000; -webkit-box-shadow: 0 1px 2px rgba(255,255,255,0.35); }
-
-.button, #homeLink, #searchBox { -webkit-border-radius: 11px; -moz-border-radius: 11px; border-radius: 11px; text-shadow: 0 1px 0px rgba(255,255,255, 0.35 ); zoom: 1; display: inline; display: -moz-inline-box; display: inline-block; vertical-align: top; border: none; font-size: 14px; height: 14px; line-height: 14px; padding: 4px   11px; text-align: center; text-decoration: none; width: 99px; }
-
 #headerWrap { background: url('../images/bg-header.gif?1267070388') repeat-x; width: 100%; height: 96px; padding-bottom: 20px; text-align: center; }
 #headerWrap #header { margin: 0 auto; position: relative; width: 1000px; }
 #headerWrap h1 a { zoom: 1; display: inline; display: -moz-inline-box; display: inline-block; vertical-align: top; text-indent: -9999em; overflow: hidden; background-image: url('../images/logo-header.gif?1267070442'); background-repeat: no-repeat; background-position: 0 16px; width: 509px; height: 96px; margin: 0 auto; }
 #headerWrap #homeLinkWrap, #headerWrap #searchForm { position: absolute; top: 37px; }
 #headerWrap #homeLinkWrap { left: 64px; }
-#headerWrap #searchForm { right: 64px; }
-#headerWrap #searchForm #searchSubmit { display: none; }
-#headerWrap #searchBox { font-family: "Gill Sans", "Gill Sans MT", Helvetica, "Bitstream Vera Sans", Arial, Geneva, sans-serif; background: white url('../images/nav-buttons.gif?1265330470') no-repeat center -32px; color: black; text-align: left; }
-#headerWrap #searchBox.placeholder { color: #666666; }
+#headerWrap #searchForm { width: 159px; height: 28px; text-align: left; right: 64px; }
+#headerWrap #searchForm #searchBox, #headerWrap #searchForm #searchBox:focus { font-family: "Gill Sans", "Gill Sans MT", Helvetica, "Bitstream Vera Sans", Arial, Geneva, sans-serif; background: url('../images/search.gif?1268278288') no-repeat; color: black; text-align: left; border: 0; font-size: 14px; height: 22px; width: 106px; padding: 3px 0 3px 11px; }
+#headerWrap #searchForm #searchBox.placeholder, #headerWrap #searchForm #searchBox:focus.placeholder { color: #666666; }
+#headerWrap #searchForm #searchSubmit input { background: red; border: 0; padding: 0; width: 46px; height: 28px; background: url('../images/search.gif?1268278288') no-repeat top right; text-indent: -9999px; position: absolute; top: 0; right: 0; }
+#headerWrap #searchForm #searchSubmit input:active, #headerWrap #searchForm #searchSubmit input:focus { background-position: bottom right; }
 #headerWrap #homeLink { background: #e5e5e5 url('../images/nav-buttons.gif?1265330470') no-repeat center -96px; color: black; text-transform: uppercase; }
 #headerWrap #homeLink:hover, #headerWrap #homeLink:focus { background-position: center -128px; }
 #headerWrap #homeLink:active { background-position: center -160px; }
@@ -38,7 +35,7 @@ body { font-family: "Gill Sans", "Gill Sans MT", Helvetica, "Bitstream Vera Sans
 #navigation { display: inline; float: left; margin-right: 32px; width: 904px; text-shadow: 0 1px 0px rgba(255,255,255, 0.35 ); font-family: "Gill Sans", "Gill Sans MT", Helvetica, "Bitstream Vera Sans", Arial, Geneva, sans-serif; background: url('../images/bg-content.gif?1267070312') no-repeat top left; font-size: 14px; margin-top: -48px; margin-right: -48px; margin-bottom: 16px; margin-left: -48px; padding-top: 20px; padding-right: 20px; padding-bottom: 0; padding-left: 20px; width: 960px; }
 * html #navigation { overflow-x: hidden; }
 #navigation li { display: inline; }
-#navigation a { background: url('../images/nav-buttons.gif?1265330470') no-repeat -16px 0; color: black; float: left; height: 32px; line-height: 32px; margin-left: 1px; text-align: center; text-decoration: none; text-transform: uppercase; width: 159.167px; }
+#navigation a { background: url('../images/nav-buttons.gif?1265330470') no-repeat -16px 0; color: black; float: left; height: 32px; letter-spacing: 1px; line-height: 32px; margin-left: 1px; text-align: center; text-decoration: none; text-transform: uppercase; width: 159.167px; }
 #navigation a:hover, #navigation a:focus { background-position: -16px -32px; }
 #navigation a:active { background-position: -16px -64px; }
 #navigation li.first a { margin-left: 0; background-position: left top; }

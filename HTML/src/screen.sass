@@ -18,12 +18,6 @@ body
     min-width= !bodyWidth + 2 * !stdPadding
     padding: 0
 
-.buttonWrapper
-    +buttonWrapper(1px, !redDeep)
-
-.button, #homeLink, #searchBox
-    +button()
-
 #headerWrap
     background= image_url("bg-header.gif") "repeat-x"
     width: 100%
@@ -46,16 +40,36 @@ body
     #homeLinkWrap
         left= !headerSideOffset
     #searchForm
-        right= !headerSideOffset
-        #searchSubmit
-            display: none
-    #searchBox
-        +fontGillSans
-        background= !bgColorNavButtonHover image_url("nav-buttons.gif") "no-repeat center -32px"
-        color= !textColor
+        // background= image_url("search.gif") "no-repeat"
+        width: 159px
+        height: 28px
         text-align: left
-        &.placeholder
-            color= !textColorGray
+        right= !headerSideOffset
+        #searchBox, #searchBox:focus
+            +fontGillSans
+            background= image_url("search.gif") "no-repeat"
+            color= !textColor
+            text-align: left
+            border: 0
+            font-size= !interfaceFontSize
+            height: 22px
+            width: 106px
+            padding: 3px 0 3px 11px
+            &.placeholder
+                color= !textColorGray
+        #searchSubmit input
+            background: red
+            border: 0
+            padding: 0
+            width: 46px
+            height: 28px
+            background= image_url("search.gif") "no-repeat top right"
+            text-indent: -9999px
+            position: absolute
+            top: 0
+            right: 0
+            &:active, &:focus
+                background-position: bottom right
     #homeLink
         background= !bgColorNavButton image_url("nav-buttons.gif") "no-repeat center -96px"
         color= !textColor
@@ -90,6 +104,7 @@ body
         color= !textColor
         float: left
         height= !navButtonHeight
+        letter-spacing: 1px
         line-height= !navButtonHeight
         margin-left= !navBorderWidth
         text-align: center

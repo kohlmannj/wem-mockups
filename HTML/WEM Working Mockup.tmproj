@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>src/_parameters.sass</string>
+	<string>src/screen.sass</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -49,11 +49,26 @@
 			<key>firstVisibleLine</key>
 			<integer>40</integer>
 		</dict>
+		<key>src/screen.sass</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>33</integer>
+				<key>line</key>
+				<integer>73</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
 	</dict>
 	<key>openDocuments</key>
 	<array>
 		<string>src/_parameters.sass</string>
 		<string>index.html</string>
+		<string>src/screen.sass</string>
 	</array>
 	<key>showFileHierarchyDrawer</key>
 	<false/>
