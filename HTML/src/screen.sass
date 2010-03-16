@@ -40,14 +40,14 @@ body
     #homeLinkWrap
         left= !headerSideOffset
     #searchForm
-        // background= image_url("search.gif") "no-repeat"
+        background: gray
         width: 159px
         height: 28px
         text-align: left
         right= !headerSideOffset
         #searchBox, #searchBox:focus
             +fontGillSans
-            background= image_url("search.gif") "no-repeat"
+            background= image_url("search.gif") "no-repeat" blue
             color= !textColor
             text-align: left
             border: 0
@@ -58,16 +58,12 @@ body
             &.placeholder
                 color= !textColorGray
         #searchSubmit input
-            background: red
             border: 0
             padding: 0
             width: 46px
             height: 28px
-            background= image_url("search.gif") "no-repeat top right"
+            background= image_url("search.gif") "no-repeat top right" green
             text-indent: -9999px
-            position: absolute
-            top: 0
-            right: 0
             &:active, &:focus
                 background-position: bottom right
     #homeLink

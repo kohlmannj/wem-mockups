@@ -23,10 +23,10 @@ body { font-family: "Gill Sans", "Gill Sans MT", Helvetica, "Bitstream Vera Sans
 #headerWrap h1 a { zoom: 1; display: inline; display: -moz-inline-box; display: inline-block; vertical-align: top; text-indent: -9999em; overflow: hidden; background-image: url('../images/logo-header.gif?1267070442'); background-repeat: no-repeat; background-position: 0 16px; width: 509px; height: 96px; margin: 0 auto; }
 #headerWrap #homeLinkWrap, #headerWrap #searchForm { position: absolute; top: 37px; }
 #headerWrap #homeLinkWrap { left: 64px; }
-#headerWrap #searchForm { width: 159px; height: 28px; text-align: left; right: 64px; }
-#headerWrap #searchForm #searchBox, #headerWrap #searchForm #searchBox:focus { font-family: "Gill Sans", "Gill Sans MT", Helvetica, "Bitstream Vera Sans", Arial, Geneva, sans-serif; background: url('../images/search.gif?1268278288') no-repeat; color: black; text-align: left; border: 0; font-size: 14px; height: 22px; width: 106px; padding: 3px 0 3px 11px; }
+#headerWrap #searchForm { background: gray; width: 159px; height: 28px; text-align: left; right: 64px; }
+#headerWrap #searchForm #searchBox, #headerWrap #searchForm #searchBox:focus { font-family: "Gill Sans", "Gill Sans MT", Helvetica, "Bitstream Vera Sans", Arial, Geneva, sans-serif; background: url('../images/search.gif?1268278288') no-repeat blue; color: black; text-align: left; border: 0; font-size: 14px; height: 22px; width: 106px; padding: 3px 0 3px 11px; }
 #headerWrap #searchForm #searchBox.placeholder, #headerWrap #searchForm #searchBox:focus.placeholder { color: #666666; }
-#headerWrap #searchForm #searchSubmit input { background: red; border: 0; padding: 0; width: 46px; height: 28px; background: url('../images/search.gif?1268278288') no-repeat top right; text-indent: -9999px; position: absolute; top: 0; right: 0; }
+#headerWrap #searchForm #searchSubmit input { border: 0; padding: 0; width: 46px; height: 28px; background: url('../images/search.gif?1268278288') no-repeat top right green; text-indent: -9999px; }
 #headerWrap #searchForm #searchSubmit input:active, #headerWrap #searchForm #searchSubmit input:focus { background-position: bottom right; }
 #headerWrap #homeLink { background: #e5e5e5 url('../images/nav-buttons.gif?1265330470') no-repeat center -96px; color: black; text-transform: uppercase; }
 #headerWrap #homeLink:hover, #headerWrap #homeLink:focus { background-position: center -128px; }
