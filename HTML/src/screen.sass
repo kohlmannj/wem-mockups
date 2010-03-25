@@ -302,27 +302,34 @@ body#home
         left= !issuePadding
         top= !issuePadding
         &, a
-            color: #fff
+            color= !bgColorWrapper
     .cover, .article
-        color: inherit
-        +inline-block
+        color= !bgColorWrapper
+        display: block
+        float: left
         background: #000
         height= (200px - 2 * !issuePadding)
-        overflow: hidden
+        // overflow: hidden
         position: relative
         text-decoration: none
-        :margin
-            top:    0
-            left=   0
-            right=  -3px
-            bottom= !navBorderWidth
+        border-left= !navBorderWidth " solid " !bgColorWrapper
+        border-bottom= !navBorderWidth " solid " !bgColorWrapper
+        // :margin
+        //     top:    0
+        //     right=  0
+        //     left=   !navBorderWidth
+        //     bottom= !navBorderWidth
         width= !coverWidth
         padding= !issuePadding
         div, img
             width= !coverWidth + (2 * !issuePadding)
+        img
+            width= 320px
+            height= 200px
         div
-            background-color: rgba(0,0,0,0.65)
-            // background: red
+            background-color: rgba(0, 0, 0, 0.65)
+            filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#A5000000',endColorstr='#A5000000')
+            -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#A5000000',endColorstr='#A5000000')"
             :margin
                 left= -!issuePadding
                 right= -!issuePadding
@@ -332,6 +339,7 @@ body#home
             position: absolute
             bottom: 0
             z-index: 1
+            width= !coverWidth
             
         h2, p
             position: relative
@@ -350,11 +358,10 @@ body#home
             text-transform: uppercase
             overflow: hidden
             +ellipsis(true)
-            width= !coverWidth
         img
             -webkit-transition: opacity 0.25s ease-in-out
             +opacity(0.85)
-            height: auto
+            // height: auto
             position: absolute
             left: 0
             top: 0
@@ -364,6 +371,8 @@ body#home
     //     position: absolute
     //     width= !coverWidth
     //     bottom= !issuePadding
+    .cover, .article.left
+        border-left: 0
     
     .article
         width= !articleWidth
