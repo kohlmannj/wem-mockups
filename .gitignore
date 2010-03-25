@@ -1,2 +1,5 @@
 # Ignore Sass Cache
 .sass-cache
+# Ignore Rendered Stylesheets
+HTML/stylesheets
+HTML/src/screen.css

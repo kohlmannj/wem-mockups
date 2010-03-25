@@ -17,11 +17,12 @@
 	<script type="text/javascript" charset="utf-8" src="scripts/helpers.js"></script>
 </head>
 
-<body>
+<body id="home">
 	<div id="headerWrap">
 		<div id="header">
 			<h1><a href="/">Wisconsin Engineer Magazine</a></h1>
 			<!-- <div id="homeLinkWrap" class="buttonWrapper"><a id="homeLink" href="/">Home</a></div> -->
+			<p>Published by the Students of the University of Wisconsin-Madison</p>
 			<form id="searchForm" method="post" action="/search/">
 				<input id="searchBox" type="text" name="searchBox" />
 				<div id="searchSubmit"><input type="submit" value="Search" /></div>
@@ -31,25 +32,58 @@
 	
 	<div id="wrapper">
 		<ul id="navigation">
-			<li class="first"><a href="/">Home</a></li>
-			<li><a href="#past-issues">Past Issues</a></li>
-			<li><a href="#subscribe">Subscribe</a></li>
-			<li><a href="#advertising">Advertising</a></li>
-			<li><a href="#features">Features</a></li>
-			<li class="last"><a href="#about-us">About Us</a></li>
+			<li class="first"><a href="/"><span>Home</span></a></li>
+			<li><a href="#past-issues"><span>Past Issues</span></a></li>
+			<li><a href="#subscribe"><span>Subscribe</span></a></li>
+			<li><a href="#advertising"><span>Advertising</span></a></li>
+			<li><a href="#features"><span>Features</span></a></li>
+			<li class="last"><a href="#about-us"><span>About Us</span></a></li>
 		</ul><!-- End #navigation -->
 		
-		<div id="introduction">
-			<h2>Tiny Invaders Spell Big Trouble for Wisconsin Walleye</h2>
+		<div id="issue">
 			<dl class="meta">
-				<dt>Writing</dt>
-				<dd><a href="#author-012">Jack Johnson</a></dd>
-				<dt>Photography</dt>
-				<dd><a href="#">Lakshay Gupta</a></dd>
-				<dt>Date</dt>
-				<dd><a href="#">November 2009</a></dd>
+				<dt>Issue</dt>
+				<dd><a href="#">February 2010</a></dd>
+				<dt>Volume</dt>
+				<dd><a href="#">14</a></dd>
+				<dt>Number</dt>
+				<dd><a href="#">2</a></dd>
 			</dl><!-- End #meta -->
-		</div><!-- End #introduction -->
+			<a class="cover" id="article-1" href="/articles/1">
+				<div>
+					<h2>Something in the Water</h2>
+					<p>An Overview of Wisconsin's Water Quality.</p>
+				</div>
+				<img src="photos/issue-cover.jpg" alt="February 2010 Cover Image" />
+			</a>
+			<a class="article cover-right" href="http://www.apple.com/">
+				<div>
+					<h2>Recovery, Reinvestment, &amp; Research asdfffffffffffasdfasdfa</h2>
+				</div>
+				<img src="photos/web.jpg" alt="Image for Article" />
+			</a>
+			<a class="article left" href="http://www.engadget.com/">
+				<div>
+					<p>On Campus</p>
+					<h2>What a Vue</h2>
+				</div>
+				<img src="photos/randall.jpg" alt="Image for Article" />
+			</a>
+			<a class="article center" href="http://www.wisconsinengineer.com/">
+				<div>
+					<p>Professor Profile</p>
+					<h2>Brian Pfeleger,<br />Synthesizing The Future</h2>
+				</div>
+				<img src="photos/leaf.jpg" alt="Image for Article" />
+			</a>
+			<a class="article right" href="http://www.wisconsinengineer.com/">
+				<div>
+					<p>3D Movies</p>
+					<h2>Movies in the third dimension</h2>
+				</div>
+				<img src="photos/vanhise.jpg" alt="Image for Article" />
+			</a>
+		</div>
 		
 		<div id="sidebar">
 			<dl id="articleList">

@@ -18,6 +18,11 @@
 !defaultGradientTopColor= rgba(255,255,255,0.65)
 !defaultGradientBtmColor= rgba(255,255,255,0.35)
 
+=opacity(!amount)
+    opacity= !amount
+    -moz-opacity= !amount
+    filter= "alpha(opacity="(!amount * 100)")"
+
 // Font Mixins
 =fontGeorgia
     font-family: Georgia, "Times New Roman", Times, serif
@@ -28,6 +33,9 @@
 =fontGillSansLight
     font-family: "GillSans-Light", "Gill Sans Light", "Gill Sans", "Gill Sans MT", Helvetica, "Bitstream Vera Sans", Arial, Geneva, sans-serif
     font-weight: 300
+
+=fontHelvetica
+    font-family: Helvetica, "Bitstream Vera Sans", Arial, Geneva, sans-serif
     
 =fontHelveticaNeue
     font-family: "Helvetica Neue", Helvetica, "Bitstream Vera Sans", Arial, Geneva, sans-serif

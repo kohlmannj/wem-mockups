@@ -10,6 +10,10 @@
 // This design's (numerous) parameters
 @import _parameters.sass
 
+// Opera 10 still places an ugly dotted outline around things.
+*:focus, input:focus, input[type="button"]:focus, *:active, input:active
+    outline: 0 !important
+
 body
     +fontGillSans
     background= !bgColorBody
@@ -23,7 +27,6 @@ body
     width: 100%
     height= !headerInteriorHeight
     padding-bottom= !headerPadding
-    text-align: center
     #header
         margin: 0 auto
         position: relative
@@ -33,39 +36,73 @@ body
         +replace-text("logo-header.gif", "0", "16px")
         width= !headerGraphicWidth
         height= !headerInteriorHeight
-        margin: 0 auto
-    #homeLinkWrap, #searchForm
-        position: absolute
-        top= !headerButtonTopOffset
+        margin-left= !headerSideOffset - 2px
     #homeLinkWrap
         left= !headerSideOffset
+    p
+        color: #fff
+        background= image_url("tagline.gif") "no-repeat"
+        text-shadow: 0 -1px 0 rgba(0,0,0,0.35)
+        font-size: 10px
+        width: 212px
+        overflow: hidden
+        height: 28px
+        position: absolute
+        top= !headerButtonTopOffset - 3px
+        right: 237px
+        line-height= !interfaceFontSize
+        text-align: center
+        text-transform: uppercase
+        text-indent: -9999px
     #searchForm
-        background: gray
+        background= image_url("search.gif") "no-repeat"
         width: 159px
         height: 28px
         text-align: left
-        right= !headerSideOffset
+        position: absolute
+        // The arbitrary pixel values below for the padding around the graphics used.
+        top= !headerButtonTopOffset - 3px
+        right= !headerSideOffset - 2px
         #searchBox, #searchBox:focus
             +fontGillSans
-            background= image_url("search.gif") "no-repeat" blue
+            background: transparent
             color= !textColor
             text-align: left
             border: 0
             font-size= !interfaceFontSize
-            height: 22px
-            width: 106px
-            padding: 3px 0 3px 11px
+            // Made slightly higher to make the line-height align correctly
+            // in IE8, Safari4, and Firefox 3.5
+            height= !interfaceFontSize + 2px
+            line-height= !interfaceFontSize + 2px
+            width: 102px
+            margin: 6px 0 6px 13px
+            padding: 0
             &.placeholder
                 color= !textColorGray
         #searchSubmit input
             border: 0
             padding: 0
-            width: 46px
+            width: 44px
             height: 28px
-            background= image_url("search.gif") "no-repeat top right" green
+            background= image_url("search.gif") "no-repeat top right"
             text-indent: -9999px
-            &:active, &:focus
-                background-position: bottom right
+            // IE 7 Fixes
+            line-height: 0px
+            font-size: 0px
+            position: absolute
+            right: 0
+            top: 0
+            &:focus
+                background-position: right bottom
+                -ms-background-position-x: -115px
+                -ms-background-position-y: -28px
+            &:active
+                background-position: right bottom
+                -ms-background-position-x: -114px
+                -ms-background-position-y: -27px
+            &:active:focus
+                -ms-background-position-x: -114px
+                -ms-background-position-y: -27px
     #homeLink
         background= !bgColorNavButton image_url("nav-buttons.gif") "no-repeat center -96px"
         color= !textColor
@@ -76,6 +113,7 @@ body
             background-position: center -160px
 
 #navigation
+    !navLinkBgOffset = (6 * !navButtonHeight)
     +column(!blueprint_grid_columns)
     +etchedText
     +fontGillSans
@@ -90,42 +128,47 @@ body
     :padding
         top=    (!navMargin + !stdPadding)
         right=  (!navMargin + !stdPadding)
-        bottom= 0
         left=   (!navMargin + !stdPadding)
     width= !bodyWidth - 2 * !navMargin
+    overflow: hidden
     li
         display: inline
     a
-        background= image_url("nav-buttons.gif") "no-repeat -16px 0"
+        background= image_url("nav-buttons.gif") "no-repeat -16px " (0 - !navLinkBgOffset)
         color= !textColor
         float: left
         height= !navButtonHeight
         letter-spacing: 1px
         line-height= !navButtonHeight
-        margin-left= !navBorderWidth
         text-align: center
         text-decoration: none
         text-transform: uppercase
         width= !navLinkWidth
+        span
+            +inline-block
+            width= !navLinkWidth - !navBorderWidth
+            border-left= !navBorderWidth "solid #fff"
         &:hover, &:focus
-            background-position= "-16px " -!navButtonHeight
+            background-position= "-16px " -(!navButtonHeight + !navLinkBgOffset)
         &:active
-            background-position= "-16px " -(2 * !navButtonHeight)
+            background-position= "-16px " -(2 * !navButtonHeight + !navLinkBgOffset)
     li.first a
         margin-left: 0
-        background-position: left top
+        background-position= "left " (0 - !navLinkBgOffset)
+        span
+            border: 0
+            width= !navLinkWidth
         &:hover, &:focus
-            background-position= "left " -!navButtonHeight
+            background-position= "left " -(!navButtonHeight + !navLinkBgOffset)
         &:active
-            background-position= "left " -(2 * !navButtonHeight)
+            background-position= "left " -(2 * !navButtonHeight + !navLinkBgOffset)
     li.last a
-        background-position: right top
+        background-position= "right " (0 - !navLinkBgOffset)
         // Fixes a width rounding error with 1000px width and 6 items.
-        padding-right: 1px
         &:hover, &:focus
-            background-position= "right  " -!navButtonHeight
+            background-position= "right  " -(!navButtonHeight + !navLinkBgOffset)
         &:active
-            background-position= "right " -(2 * !navButtonHeight)
+            background-position= "right " -(2 * !navButtonHeight + !navLinkBgOffset)
 
 // "+ !stdPadding" accounts for the 16px margin in background images for shadow
 #wrapper
@@ -149,7 +192,8 @@ body
     #introduction
         +column(!blueprint_grid_columns)
         p
-            margin= !wrapperPadding " 0"
+            margin= -!stdLineHeight " 0 " 1.5*!stdLineHeight
+            text-align: center
     #sidebar
         +column(!sidebarCols)
     #content
@@ -164,7 +208,7 @@ body
             margin-bottom= !stdPadding
     #introduction p, p.intro
         font-size= !largeFontSize
-    #introduction a, #content p a, #addendum a
+    a
         color= !textColor
         text-decoration: underline
         &:focus
@@ -172,7 +216,6 @@ body
             text-decoration: none
             +borderRadius(4px)
     h2
-        widows: 4
         font-size= !titleFontSize
         font-weight: normal
         line-height= !titleLineHeight
@@ -181,6 +224,7 @@ body
         margin-bottom= !stdLineHeight
     .meta
         +fontGillSans
+        letter-spacing: 1px
         color= !textColorGray
         margin= -!stdLineHeight " 0 " !wrapperPadding
         text-align: center
@@ -189,6 +233,8 @@ body
             display: inline
         dd + dt
             margin-left= !stdPadding
+        dd
+            color= !textColor
     .author
         color= !textColorGray
         font-style: italic
@@ -226,6 +272,122 @@ body
         &.author-pic
             text-align: right
             width: none
+
+// Use navigation backgrounds without rounded bottom corners on the home page.
+body#home
+    #navigation
+        :margin
+            bottom= !navBorderWidth
+    // !navLinkBgOffset = 2 * (3 * !navButtonHeight)
+    .meta
+        line-height= !issuePadding
+        margin: 0
+
+#issue
+    width= !bodyWidth - 2 * !navMargin
+    :margin
+        top=    !navBorderWidth
+        right=  (-!wrapperPadding + !navMargin)
+        bottom= !wrapperPadding
+        left=   (-!wrapperPadding + !navMargin)
+    overflow: hidden
+    clear: both
+    position: relative
+    text-shadow: 0 1px 2px rgba(0,0,0,0.65)
+    color: #fff
+    .meta
+        display: none
+        position: absolute
+        z-index: 2
+        left= !issuePadding
+        top= !issuePadding
+        &, a
+            color: #fff
+    .cover, .article
+        color: inherit
+        +inline-block
+        background: #000
+        height= (200px - 2 * !issuePadding)
+        overflow: hidden
+        position: relative
+        text-decoration: none
+        :margin
+            top:    0
+            left=   0
+            right=  -3px
+            bottom= !navBorderWidth
+        width= !coverWidth
+        padding= !issuePadding
+        div, img
+            width= !coverWidth + (2 * !issuePadding)
+        div
+            background-color: rgba(0,0,0,0.65)
+            // background: red
+            :margin
+                left= -!issuePadding
+                right= -!issuePadding
+                top= -!issuePadding
+                bottom: 0
+            padding= !issuePadding
+            position: absolute
+            bottom: 0
+            z-index: 1
+            
+        h2, p
+            position: relative
+            z-index: 1
+            text-align: left
+            margin: 0
+        h2
+            font-size= !issueTitleFontSize
+            line-height= !issueTitleFontSize + (!stdPadding / 2)
+            max-height= (2 * !issueTitleFontSize) + !stdPadding + 2px
+            overflow: hidden
+            +ellipsis(false)
+        p
+            +fontGillSans
+            letter-spacing: 1px
+            text-transform: uppercase
+            overflow: hidden
+            +ellipsis(true)
+            width= !coverWidth
+        img
+            -webkit-transition: opacity 0.25s ease-in-out
+            +opacity(0.85)
+            height: auto
+            position: absolute
+            left: 0
+            top: 0
+        &:hover img
+            +opacity(1)
+    // .cover p
+    //     position: absolute
+    //     width= !coverWidth
+    //     bottom= !issuePadding
+    
+    .article
+        width= !articleWidth
+        img
+            width= !articleWidth + (2 * !issuePadding)
+        div
+            width= !articleWidth
+        h2
+            font-size= !largeFontSize
+            line-height: 24px
+            max-height= (2 * 24px) + 2px
+        p
+            width= !articleWidth
+        &.left div
+            background-image= image_url("corner-bottom-left.png")
+            background-repeat: no-repeat
+            background-position: left bottom
+        &.right div
+            background-image= image_url("corner-bottom-right.png")
+            background-repeat: no-repeat
+            background-position: right bottom
+        &.center
+            width= !articleWidth + 1px
+    
 
 #sidebar
     +etchedText

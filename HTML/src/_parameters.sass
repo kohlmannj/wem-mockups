@@ -21,7 +21,8 @@
 !interfaceFontSize = 14px
 !stdFontSize       = 16px
 !largeFontSize     = !stdFontSize * 1.25
-!titleFontSize     = !stdFontSize * 3.5
+!issueTitleFontSize= !stdFontSize * 2.5
+!titleFontSize     = !stdFontSize * 3
 !stdLineHeight     = !stdFontSize * 1.5
 !titleLineHeight   = !titleFontSize * 1.5
 !footerLineHeight  = 17px
@@ -53,7 +54,7 @@
 // Defines the distance from the top that #header's buttons must be to appear vertically centered.
 !headerButtonTopOffset = (!headerInteriorHeight - (!buttonHeight + 2 * !buttonBorderWidth)) / 2
 // !headerSideOffset      = (!bodyWidth - !headerGraphicWidth) / 4 - (!widthDefault / 2)
-!headerSideOffset      = !wrapperPadding * 2
+!headerSideOffset      = !wrapperPadding + !stdPadding
 
 //// #navigation ////
 // The width of the gap between each navigation bar link.
@@ -62,7 +63,14 @@
 !navMargin       = !stdPadding / 4
 // Set to the number of links in the navigation bar.
 !navLinkCount    = 6
-!navLinkWidth    = (!bodyWidth - 2 * !navMargin - (!navLinkCount - 1)) / !navLinkCount
+// Previously,  - (!navLinkCount - 1)*!navBorderWidth made room for spacing.
+!navLinkWidth    = (!bodyWidth - 2 * !navMargin) / !navLinkCount
+!navLinkBgOffset = 0
+
+//// #issue ////
+!issuePadding = !wrapperPadding * 3/4
+!coverWidth = 4 * !navLinkWidth - (2 * !issuePadding)
+!articleWidth = 2 * !navLinkWidth - (2 * !issuePadding) - 1px
 
 //// #sidebar ////
 !sidebarLinkPadding = 4px
