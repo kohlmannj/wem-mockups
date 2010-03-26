@@ -5,9 +5,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 	<title>Wisconsin Engineer Magazine</title>
-	<meta name="author" content="Joe Kohlmann">
-	<link href="stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
-	<link href="stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
+	<meta name="author" content="Joe Kohlmann" />
+	<link href="stylesheets/screen.css" media="all, screen, projection" rel="stylesheet" type="text/css" />
+	<!-- <link href="stylesheets/print.css" media="print" rel="stylesheet" type="text/css" /> -->
 	<!-- CSS Fixes for Internet Explorer -->
 	<!--[if IE]>
 		<link href="stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
@@ -40,131 +40,82 @@
 			<li class="last"><a href="#about-us"><span>About Us</span></a></li>
 		</ul><!-- End #navigation -->
 		
-		<div id="issue">
-			<dl class="meta">
-				<dt>Issue</dt>
-				<dd><a href="#">February 2010</a></dd>
-				<dt>Volume</dt>
-				<dd><a href="#">14</a></dd>
-				<dt>Number</dt>
-				<dd><a href="#">2</a></dd>
-			</dl><!-- End #meta -->
-			<a class="cover" id="article-1" href="/articles/1">
-				<div>
-					<h2>Something in the Water</h2>
-					<p>An Overview of Wisconsin's Water Quality.</p>
-				</div>
-				<img src="photos/issue-cover.jpg" alt="February 2010 Cover Image" />
-			</a>
-			<a class="article cover-right" href="http://www.apple.com/">
-				<div>
-					<h2>Recovery, Reinvestment, &amp; Research</h2>
-				</div>
-				<img src="photos/web.jpg" alt="Image for Article" />
-			</a>
-			<a class="article left" href="http://www.engadget.com/">
-				<div>
-					<p>On Campus</p>
-					<h2>What a Vue</h2>
-				</div>
-				<img src="photos/randall.jpg" alt="Image for Article" />
-			</a>
-			<a class="article center" href="http://www.wisconsinengineer.com/">
-				<div>
-					<p>Professor Profile</p>
-					<h2>Brian Pfeleger,<br />Synthesizing The Future</h2>
-				</div>
-				<img src="photos/leaf.jpg" alt="Image for Article" />
-			</a>
-			<a class="article right" href="http://www.wisconsinengineer.com/">
-				<div>
+		<div id="issueContainer">
+			<div id="issue">
+				<dl class="meta">
+					<dt>Issue</dt>
+					<dd><a href="#">February 2010</a></dd>
+					<dt>Volume</dt>
+					<dd><a href="#">14</a></dd>
+					<dt>Number</dt>
+					<dd><a href="#">2</a></dd>
+				</dl><!-- End #meta -->
+				<a class="article wide" id="article-1" href="/articles/1">
+					<div>
+						<h2>Something in the Water</h2>
+						<p>An Overview of Wisconsin's Water Quality.</p>
+					</div>
+					<img src="photos/panorama_sm.jpg" alt="February 2010 Cover Image" />
+				</a><!--
+				--><a class="article" href="http://www.apple.com/">
+					<div>
+						<h2>Recovery, Reinvestment, &amp; Research</h2>
+					</div>
+					<img src="photos/web.jpg" alt="Image for Article" />
+				</a><!--
+				--><a class="article" href="http://www.engadget.com/">
+					<div>
+						<p>On Campus</p>
+						<h2>What a Vue</h2>
+					</div>
+					<img src="photos/randall.jpg" alt="Image for Article" />
+				</a><!--
+				--><a class="article" href="http://www.wisconsinengineer.com/">
+					<div>
+						<p>Professor Profile</p>
+						<h2>Brian Pfeleger,<br />Synthesizing The Future</h2>
+					</div>
+					<img src="photos/leaf.jpg" alt="Image for Article" />
+				</a><!--
+				--><a class="article" href="http://www.wisconsinengineer.com/">
+					<div>
+						<p>3D Movies</p>
+						<h2>Movies in the third dimension</h2>
+					</div>
+					<img src="photos/vanhise.jpg" alt="Image for Article" />
+				</a>
+			</div><!-- End #issue -->
+		</div><!-- End #issueContainer -->
+	</div><!-- End #wrapper -->
+	<div id="outsideWrapper">
+		<div id="moreArticles">
+			<div class="left">
+				<h2>More Articles</h2>
+				<a class="article" href="http://www.wisconsinengineer.com/">
 					<p>3D Movies</p>
-					<h2>Movies in the third dimension</h2>
-				</div>
-				<img src="photos/vanhise.jpg" alt="Image for Article" />
-			</a>
-		</div>
-		
-		<div id="sidebar">
-			<dl id="articleList">
-				<dt>Current Articles</dt>
-				<dd><ul>
-						<li><a href="#">Cover</a></li>
-						<li><a href="#">SALT</a></li>
-						<li><a class="current" href="#">Tiny Invaders Spell Big Trouble for Wisconsin Walleye</a></li>
-						<li><a href="#" title="Mini-abstract of this article appears here.">Stress 101</a></li>
-						<li><a href="#">Mooving from eCOW to eCOW2</a></li>
-						<li><a href="#">International Internships</a></li>
-						<li><a href="#">The Allure of Sustainable Lures</a></li>
-						<li><a href="#">Tracing the source of photo-induced seizures</a></li>
-					</ul>
-				</dd>
-				<dt>Professor Profile</dt>
-				<dd><ul>
-						<li><a href="/current#00001">Laura Grossenbacher</a></li>
-					</ul>
-				</dd>
-				<dt>Editorials</dt>
-				<dd><ul>
-						<li><a href="/current#00001">Jumping out of the comfort zone</a></li>
-					</ul>
-				</dd>
-				<dt>Just One More</dt>
-				<dd><ul>
-						<li><a href="/current#00001">Just One More</a></li>
-					</ul>
-				</dd>
-			</dl><!-- End #articleList -->
-			
-			<dl id="addendum">
-				<dt>More Information</dt>
-				<dd>
-					<p>I&#x27;m not quite sure what would go here just yet, but it would be a good place to include supplementary links relevant to this article that don&#x27;t really have a place in the article text.</p>
-				</dd>
-			</dl>
-		</div><!-- End #sidebar -->
-		
-		<div id="content">
-			<p>It is a part of growing up for much of Wisconsin&rsquo;s youth&mdash;you feel a tug on the line, you set the hook, Dad grabs the net, all followed by big smiles captured in a Polaroid for the scrapbook. The caption: &ldquo;My first walleye!&rdquo; It&rsquo;s a cherished experience, but one that is facing a serious threat in the depths of many Wisconsin lakes.</p>
-			<div class="caption">
-				<img src="photos/panorama.jpg" alt="Random Image" width="1022px" height="240px" />
-				<p>Random Image Caption.</p>
-			</div><!-- End .caption -->
-			<p>The threat is Osmerus mordax, commonly known as the rainbow smelt. This species of fish is native to the Atlantic coast from New Jersey to southern Canada, and it has taken a liking to inland Wisconsin lakes.</p>
-			<div class="caption left">
-				<img src="photos/web.jpg" alt="Random Image" width="1024px" height="683px" />
-				<p>Random Image Caption.</p>
-			</div><!-- End .caption-->
-			<p>The rainbow smelt&rsquo;s journey from the ocean to our lakes was a long one. Rainbow smelt were once exclusive to salt water, entering fresh water only in the early spring to spawn. The species was introduced into the freshwater lakes of Michigan in 1912 to serve as food for commercially stocked populations of Atlantic salmon. The smelt thrived in their new freshwater habitat, and the population quickly spread to Lake Michigan. In 1928, the first O. mordax were detected in Wisconsin waters at Little Sturgeon Bay in Door County. Through the efforts of individual fishermen, smelt were transported to the inland lakes of Wisconsin.</p>
-			<div class="caption sidebar">
-				<img src="photos/smelt.jpg" width="250px" height="188px" alt="Photograph of the rainbow smelt." />
-				<p>The rainbow smelt doesn&#x27;t appear menacing, but they are a devastating invasive aquatic species responsible for damaging walleye populations across the state.</p>
+					<h3>Movies in the third dimension</h3>
+				</a>
+				<a class="article" href="http://www.wisconsinengineer.com/">
+					<p>3D Movies</p>
+					<h3>Movies in the third dimension</h3>
+				</a>
 			</div>
-			<p>Although its physical appearance is less than menacing, the species brings on terrible ecological effects on the native aquatic species. Smelt feed on the juveniles of many different native species, particularly walleye and yellow perch. Smelt also consume zooplankton, the main diet of newly hatched walleye and perch. Additionally, the smelt are rich in enzymes that destroy thiamine, a vitamin necessary for the development of fish embryos and one that can cause harm to the reproduction of the game fish that eat them.</p>
-			<p>&ldquo;Smelt are a death sentence,&rdquo; Dr. Stephen Carpenter, an award-winning ecologist and professor of zoology at UW-Madison, says. &ldquo;If they get into a lake, the walleye are gone in ten or fifteen years.&rdquo; The damage that the nonnative smelt population is causing to Wisconsin ecosystems has been well documented by the Department of Natural Resources, but current measures only prevent the spread of smelt. Considered a &lsquo;rough fish,&rsquo; transportation of live smelt away from the body of water in which it was caught is illegal. However, many anglers are unaware or neglectful of these laws and continue to use the smelt as bait for game fish. Fifteen lakes in Vilas County, Wisconsin are now populated with smelt, and six of those lakes have already lost their reproducing walleye population. Until recently, it was thought impossible to remove the invasive population without further damaging the native species. However, a team of UW-Madison engineers and limnologists led by Dr. Carpenter and Dr. Chin Wu, a professor of civil and environmental engineering, are tackling the smelt infestation with some revolutionary ideas.</p>
-			<p>&ldquo;Smelt are highly adapted to cold water that is rich in oxygen. Our goal is to eliminate that kind of water from the lake,&rdquo; Carpenter says. This is certainly not a light undertaking, but the team is confident in its new solution, which is a device known as GELI (Gradual Entrainment Lake Inverter).</p>
-			<p>&ldquo;[The device] looks like a kiddy swimming pool, but much, much bigger,&rdquo; Carpenter says. &ldquo;It is four to five meters in radius. A giant disk with a reinforced rim sinks into the lake. You inflate the rim and it rises carrying the cold water. You spill the cold water and pump the air out.&rdquo; This process mixes the warm water at the surface with the colder water in the depths, effectively raising the temperature of the smelt habitat. The increase of temperature will either kill the fish or stress its breeding habits, thus preventing it from reproducing. The native species, such as walleye, live at temperatures much higher than the projected final temperature, after using the GELI.</p>
-			<div class="caption quote">
-				&ldquo;Smelt are a death sentence...If they get into a lake the walleye are gone in ten or fifteen years&rdquo;&nbsp;&nbsp;&ndash; Dr. Stephen Carpenter
+			<div class="center">
+				<h2>Editorials</h2>
+				<a class="article" href="http://www.wisconsinengineer.com/">
+					<h3>Shoulda, Coulda, Woulda</h3>
+					<p>Matt Stauffer</p>
+				</a>
 			</div>
-			<p>&ldquo;We&rsquo;re looking at increasing the temperature to around 20 degrees Centigrade. The native species involved live in lakes around and above 25 degrees, so there is no danger of harming them,&rdquo; Jordan Read, a doctoral candidate in civil and environmental engineering, says.</p>
-			<p>The GELI is still a work in progress, and several questions need to be answered. &ldquo;How many GELI do we need? Do we bunch them up in the middle or spread them around? Do we use them as soon as the ice melts or later?&rdquo; Carpenter says, but he remains confident these questions will be answered. &ldquo;So far everything looks really good. We&rsquo;re going to test, test and retest. Just like any other large intervention, we&rsquo;re going to be very careful, but there has been no indication we shouldn&rsquo;t be moving forward with this technology.&rdquo;</p>
-			<p>&ldquo;This isn&rsquo;t going to be a panacea. You need a cold-water species you want to kill, while none of the other species are sensitive to removal,&rdquo; Carpenter says. The teams plan is to move the project to a large scale, hopefully using it in several smelt-ridden lakes, but Carpenter and his team understand the limits of the GELI.</p>
-			<p>The team has done preliminary field tests in central and northern Wisconsin lakes, including Crystal Lake in Vilas County, which no longer has a yellow perch population due to the smelt invaders. This 83 acre lake is expected to be one of the first to receive extensive GELI treatment. Additionally, Read sees potential in using this technology in areas suffering oxygen depletion or in drinking water reservoirs. Currently reservoirs are treated by pressurized aeration, but tests have shown that the GELI technology can be up to ten times more efficient.</p>
-			<p>The GELI creates a column of warm water, raising temperatures to levels uninhabitable by invasive smelt.</p>
-			<p>Read says the team is using this year as a baseline year to gather information about the fish populations, while the GELI is projected to be introduced to lakes in 2011 or 2012. As the team diligently moves forward, the future of Wisconsin&rsquo;s lakes and fisheries look to be in good hands, and the next generations of anglers should have no trouble finding their first walleye.</p>
-			<div class="caption author-pic">
-				<img src="photos/jack-johnson.jpg" width="52px" height="52px">
+			<div>
+				<h2>Announcements</h2>
+				<a class="article" href="http://www.wisconsinengineer.com/">
+					<h3>Shoulda, Coulda, Woulda</h3>
+					<p>Matt Stauffer</p>
+				</a>
 			</div>
-			<p id="author-012" class="author">Jack Johnson is a freshman in the college of engineering at UW-Madison. This is his first semester with the magazine.</p>
-		</div><!-- End #content -->
-
-		<div id="advertising">
-			<img src="photos/120x600.gif" alt="Advertisement graphic." />
-						<img src="photos/120x600.gif" alt="Advertisement graphic." />
-						<img src="photos/120x600.gif" alt="Advertisement graphic." />
-		</div><!-- End #advertising -->
-
+		</div><!-- End #moreArticles -->
+	
 		<div id="footer">
 			<ul id="leftInfo">
 				<li class="copyright">&copy;2010 Wisconsin Engineer Magazine</li>
@@ -178,6 +129,6 @@
 				<li>608.262.3494</li>
 			</ul>
 		</div><!-- End #footer -->
-	</div><!-- End #wrapper -->
+	</div><!-- End #outsideWrapper -->
 </body>
 </html>

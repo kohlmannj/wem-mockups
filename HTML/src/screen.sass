@@ -147,17 +147,19 @@ body
         span
             +inline-block
             width= !navLinkWidth - !navBorderWidth
-            border-left= !navBorderWidth "solid #fff"
+            border-right= !navBorderWidth "solid #fff"
         &:hover, &:focus
             background-position= "-16px " -(!navButtonHeight + !navLinkBgOffset)
         &:active
             background-position= "-16px " -(2 * !navButtonHeight + !navLinkBgOffset)
+    // Crazy-ass hacks to get the border lines to line up cleanly.
+    li.last a
+        span
+            border-right: 0
+            width= !navLinkWidth
     li.first a
         margin-left: 0
         background-position= "left " (0 - !navLinkBgOffset)
-        span
-            border: 0
-            width= !navLinkWidth
         &:hover, &:focus
             background-position= "left " -(!navButtonHeight + !navLinkBgOffset)
         &:active
@@ -208,19 +210,19 @@ body
             margin-bottom= !stdPadding
     #introduction p, p.intro
         font-size= !largeFontSize
-    a
+    #content a
         color= !textColor
         text-decoration: underline
         &:focus
             background= !bgColorBody
             text-decoration: none
             +borderRadius(4px)
-    h2
+    #introduction h2
         font-size= !titleFontSize
         font-weight: normal
         line-height= !titleLineHeight
         text-align: center
-    h2, .caption, p
+    #introduction h2, .caption, #content p
         margin-bottom= !stdLineHeight
     .meta
         +fontGillSans
@@ -277,21 +279,76 @@ body
 body#home
     #navigation
         :margin
-            bottom= !navBorderWidth
+            bottom= 0
     // !navLinkBgOffset = 2 * (3 * !navButtonHeight)
     .meta
         line-height= !issuePadding
         margin: 0
 
-#issue
+a.article
+    display: block
+    overflow: hidden
+    position: relative
+    padding= !issuePadding
+    text-decoration: none
+    width= !articleWidth
+    div
+        background= image_url("bg-feature-color.png")
+        padding= !issuePadding
+        position: absolute
+        bottom: 0
+        left: 0
+        z-index: 1
+        width: inherit
+    h2, h3, p
+        overflow: hidden
+        text-align: left
+        text-overflow: ellipsis
+        margin: 0
+    h2, h3
+        font-size= !largeFontSize
+        line-height: 24px
+        max-height= (2 * 24px) + 2px
+    p
+        +fontGillSans
+        letter-spacing: 1px
+        line-height= !stdLineHeight
+        max-height= (2 * (!stdLineHeight))
+        text-transform: uppercase
+    img
+        -webkit-transition: opacity 0.25s ease-in-out
+        +opacity(0.85)
+        width= !articleWidth + (2 * !issuePadding)
+        position: absolute
+        left: 0
+        top: 0
+    &:hover img
+        +opacity(1)
+    &.wide, &.full
+        width= 2 * !articleWidth + 2 * !issuePadding + !navBorderWidth
+        img
+            width= 2 * !articleWidth + 4 * !issuePadding + !navBorderWidth
+        h2, h3
+            font-size= !issueTitleFontSize
+            line-height= !issueTitleFontSize + (!stdPadding / 2)
+            max-height= (2 * !issueTitleFontSize) + !stdPadding
+    &.full
+        width= 3 * !articleWidth + 4 * !issuePadding + 3 * !navBorderWidth
+        img
+            width= 3 * !articleWidth + 6 * !issuePadding + 3 * !navBorderWidth
+
+#issueContainer
     width= !bodyWidth - 2 * !navMargin
-    :margin
-        top=    !navBorderWidth
-        right=  (-!wrapperPadding + !navMargin)
-        bottom= !wrapperPadding
-        left=   (-!wrapperPadding + !navMargin)
     overflow: hidden
     clear: both
+    :margin
+        right=  (-!wrapperPadding + !navMargin)
+        left=   (-!wrapperPadding + !navMargin)
+        bottom= !navMargin
+
+#issue
+    width= !bodyWidth - 2 * !navMargin + !navBorderWidth
+    margin-left= -!navBorderWidth
     position: relative
     text-shadow: 0 1px 2px rgba(0,0,0,0.65)
     color: #fff
@@ -303,100 +360,74 @@ body#home
         top= !issuePadding
         &, a
             color= !bgColorWrapper
-    .cover, .article
-        color= !bgColorWrapper
-        display: block
-        float: left
-        background: #000
-        height= (200px - 2 * !issuePadding)
-        // overflow: hidden
-        position: relative
-        text-decoration: none
-        border-left= !navBorderWidth " solid " !bgColorWrapper
-        border-bottom= !navBorderWidth " solid " !bgColorWrapper
-        // :margin
-        //     top:    0
-        //     right=  0
-        //     left=   !navBorderWidth
-        //     bottom= !navBorderWidth
-        width= !coverWidth
-        padding= !issuePadding
-        div, img
-            width= !coverWidth + (2 * !issuePadding)
-        img
-            width= 320px
-            height= 200px
-        div
-            background-color: rgba(0, 0, 0, 0.65)
-            filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#A5000000',endColorstr='#A5000000')
-            -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#A5000000',endColorstr='#A5000000')"
-            :margin
-                left= -!issuePadding
-                right= -!issuePadding
-                top= -!issuePadding
-                bottom: 0
-            padding= !issuePadding
-            position: absolute
-            bottom: 0
-            z-index: 1
-            width= !coverWidth
-            
-        h2, p
-            position: relative
-            z-index: 1
-            text-align: left
-            margin: 0
-        h2
-            font-size= !issueTitleFontSize
-            line-height= !issueTitleFontSize + (!stdPadding / 2)
-            max-height= (2 * !issueTitleFontSize) + !stdPadding + 2px
-            overflow: hidden
-            +ellipsis(false)
-        p
-            +fontGillSans
-            letter-spacing: 1px
-            text-transform: uppercase
-            overflow: hidden
-            +ellipsis(true)
-        img
-            -webkit-transition: opacity 0.25s ease-in-out
-            +opacity(0.85)
-            // height: auto
-            position: absolute
-            left: 0
-            top: 0
-        &:hover img
-            +opacity(1)
-    // .cover p
-    //     position: absolute
-    //     width= !coverWidth
-    //     bottom= !issuePadding
-    .cover, .article.left
-        border-left: 0
-    
     .article
-        width= !articleWidth
+        color= !bgColorWrapper
+        background: #000
+        border-top: 1px solid #fff
+        border-left: 1px solid #fff
+        height= (200px - 2 * !issuePadding)
+        +inline-block
         img
-            width= !articleWidth + (2 * !issuePadding)
-        div
-            width= !articleWidth
-        h2
-            font-size= !largeFontSize
-            line-height: 24px
-            max-height= (2 * 24px) + 2px
-        p
-            width= !articleWidth
-        &.left div
-            background-image= image_url("corner-bottom-left.png")
-            background-repeat: no-repeat
-            background-position: left bottom
-        &.right div
-            background-image= image_url("corner-bottom-right.png")
-            background-repeat: no-repeat
-            background-position: right bottom
-        &.center
-            width= !articleWidth + 1px
+            height= 200px
+        &.tall
+            height= (400px - 2 * !issuePadding) + !navBorderWidth
+            margin-bottom= -(200px + !navBorderWidth)
+            z-index: 2
+            img
+                height: 400px
+            &.negative
+                margin-top: -200px
     
+#moreArticles
+    clear: both
+    +etchedText
+    :margin
+        left= -(!wrapperPadding + 16px)
+        right= -(!wrapperPadding + 16px)
+    :padding
+        left=   16px + !navMargin
+        right=  16px + !navMargin
+        bottom= !issuePadding
+    &>div
+        width= !articleWidth + 2 * !issuePadding
+        float: left
+        border-left= "1px solid " !bgColorBody
+        &.left
+            border-left: 0
+    a.article
+        color: #000
+        border-color= !bgColorBody
+        padding= !issuePadding / 4 " " !issuePadding / 2
+        margin= !issuePadding / 4 " " !issuePadding / 2
+        +webKitTransition("background-color")
+        background= !bgColorBody
+        +borderRadius(8px)
+        &:hover
+            background= !bgColorNavButton
+    h2
+        font-size= !stdFontSize
+        +fontGillSans
+        color= !textColorGray
+        letter-spacing: 1px
+        text-transform: uppercase
+        text-align: center
+        margin-top= -(!issuePadding / 2)
+
+#outsideWrapper
+    +container
+    background= image_url("bg-bottom.png") "no-repeat"
+    position: relative
+    z-index: 1
+    :margin
+        top=    -8px
+        right:  auto
+        bottom: 0
+        left:   auto
+    :padding
+        top=    8px + !issuePadding
+        right=  (!wrapperPadding + !stdPadding)
+        bottom: 0
+        left=   (!wrapperPadding + !stdPadding)
 
 #sidebar
     +etchedText
@@ -445,6 +476,7 @@ body#home
     +shadowedText(-1px)
     +container
     +fontGillSans
+    border-top: 1px solid #666
     text-transform: uppercase
     line-height= !footerLineHeight
     clear: both
@@ -452,6 +484,7 @@ body#home
     text-align: center
     color= !bgColorBody
     background= image_url("bg-footer.gif") "repeat-x"
+    // background= !bgColorBody
     height= 3 * !footerLineHeight
     overflow: hidden
     padding= !stdPadding

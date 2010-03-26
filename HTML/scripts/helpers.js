@@ -2,6 +2,8 @@
 
 $(document).ready(function() {
 	searchBoxAddPlaceholderText("Search WEM");
+	
+	if (! $.browser.safari) animateHovers();
 });
 
 function searchBoxAddPlaceholderText(placeholderText) {
@@ -15,5 +17,19 @@ function searchBoxAddPlaceholderText(placeholderText) {
 		if ($(this).attr("value") == "") {
 			$(this).addClass("placeholder").attr("value", placeholderText);
 		}
+	});
+}
+
+function animateHovers() {
+	console.log("Non-Safari animation fallback.");
+	// Feature Articles Hover Effect
+	$("#issue a.article").hover(function() {
+		$("img", this).animate({
+			opacity: 1
+		}, 250);
+	}, function() {
+		$("img", this).animate({
+			opacity: 0.85
+		}, 250);
 	});
 }
