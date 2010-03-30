@@ -1,0 +1,91 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="159.0" height="28.0">
+
+	<metadata>
+		<rdf:RDF xmlns:rdf = "http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs = "http://www.w3.org/2000/01/rdf-schema#" xmlns:dc = "http://purl.org/dc/elements/1.1/">
+			<rdf:Description rdf:about="http://likethought.com/opacity/">
+				<dc:title>New Image</dc:title>
+				<dc:creator>Joe Kohlmann</dc:creator>
+				<dc:rights>Copyright 2010 Joe Kohlmann</dc:rights>
+				<dc:description></dc:description>
+				<dc:format>image/svg+xml</dc:format>
+				<dc:language>en</dc:language>
+			</rdf:Description>
+		</rdf:RDF>
+	</metadata>
+	<g>
+		<title>Button &amp; Text Field</title>
+		<g>
+			<title>Button &amp; Outline</title>
+			<g>
+				<title>Button &amp; Background</title>
+				<defs>
+					<linearGradient id="Gradient118bf94e0" gradientUnits="userSpaceOnUse" x1="80.0" y1="25.0" x2="80.0" y2="2.0">
+						<stop offset="0%" stop-color="rgb(68.9%, 8.75%, 0%)" />
+						<stop offset="100%" stop-color="rgb(81.88%, 11.23%, 0%)" />
+					</linearGradient>
+				</defs>
+				<path d="M 145.0 25.0 C 151.583 25.0 157.0 19.809 157.0 13.5 L 157.0 13.5 C 157.0 7.191 151.583 2.0 145.0 2.0 L 15.0 2.0 C 8.417 2.0 3.0 7.191 3.0 13.5 L 3.0 13.5 C 3.0 19.809 8.417 25.0 15.0 25.0 L 145.0 25.0 Z" fill="url(#Gradient118bf94e0)" stroke="none" />
+			</g>
+
+			<g>
+				<title>Inner Shadow Effect</title>
+			</g>
+
+			<g>
+				<title>Shadow Effect</title>
+			</g>
+
+		</g>
+
+		<g>
+			<title>Button Stroke</title>
+			<path d="M 145.0 25.0 C 151.583 25.0 157.0 19.809 157.0 13.5 L 157.0 13.5 C 157.0 7.191 151.583 2.0 145.0 2.0 L 15.0 2.0 C 8.417 2.0 3.0 7.191 3.0 13.5 L 3.0 13.5 C 3.0 19.809 8.417 25.0 15.0 25.0 L 145.0 25.0 Z" stroke="rgb(39.94%, 3.24%, 0%)" stroke-width="1.0" stroke-linecap="square" stroke-linejoin="miter" fill="none" />
+		</g>
+
+		<g>
+			<title>Text Field</title>
+			<g>
+				<title>Text Field</title>
+				<defs>
+					<linearGradient id="Gradient11cb1c070" gradientUnits="userSpaceOnUse" x1="64.5" y1="25.0" x2="64.5" y2="2.0">
+						<stop offset="0%" stop-color="rgb(89.99%, 90.01%, 89.99%)" />
+						<stop offset="100%" stop-color="rgb(99.99%, 99.99%, 99.97%)" />
+					</linearGradient>
+				</defs>
+				<path d="M 114.0 25.0 C 120.583 25.0 126.0 19.809 126.0 13.5 L 126.0 13.5 C 126.0 7.191 120.583 2.0 114.0 2.0 L 15.0 2.0 C 8.417 2.0 3.0 7.191 3.0 13.5 L 3.0 13.5 C 3.0 19.809 8.417 25.0 15.0 25.0 L 114.0 25.0 Z" fill="url(#Gradient11cb1c070)" stroke="none" />
+			</g>
+
+			<g>
+				<title>Inner Shadow Effect</title>
+			</g>
+
+		</g>
+
+		<g>
+			<title>Text Field</title>
+			<path d="M 114.0 25.0 C 120.583 25.0 126.0 19.809 126.0 13.5 L 126.0 13.5 C 126.0 7.191 120.583 2.0 114.0 2.0 L 15.0 2.0 C 8.417 2.0 3.0 7.191 3.0 13.5 L 3.0 13.5 C 3.0 19.809 8.417 25.0 15.0 25.0 L 114.0 25.0 Z" stroke="rgb(39.94%, 3.24%, 0%)" stroke-width="1.0" stroke-linecap="square" stroke-linejoin="miter" fill="none" />
+		</g>
+
+	</g>
+
+	<g>
+		<title>Search Icon</title>
+		<mask id="Mask11cb069a0" maskUnits="userSpaceOnUse" x="0" y="0" width="159.0" height="28.0">
+			<rect fill="white" width="159.0" height="28.0" />
+			<path d="M 139.0 12.0 C 139.0 10.354 137.646 9.0 136.0 9.0 C 134.354 9.0 133.0 10.354 133.0 12.0 C 133.0 13.646 134.354 15.0 136.0 15.0 C 137.646 15.0 139.0 13.646 139.0 12.0 Z" fill="rgb(0%, 0%, 0%)" stroke="none" />
+		</mask>
+		<g mask="url(#Mask11cb069a0)">
+			<title>Search Icon</title>
+			<path d="M 141.0 12.0 C 141.0 9.257 138.743 7.0 136.0 7.0 C 133.257 7.0 131.0 9.257 131.0 12.0 C 131.0 14.743 133.257 17.0 136.0 17.0 C 138.743 17.0 141.0 14.743 141.0 12.0 Z" fill="rgb(99.99%, 100%, 99.99%)" stroke="none" />
+			<path d="M 145.0 19.0 L 145.0 16.0 L 138.0 16.0 L 138.0 19.0 L 145.0 19.0 Z" fill="rgb(99.99%, 100%, 99.99%)" stroke="none" transform="translate(141.5, 17.5) rotate(45.0) translate(-141.5, -17.5)" />
+		</g>
+
+		<g>
+			<title>Shadow Effect</title>
+		</g>
+
+	</g>
+
+</svg>

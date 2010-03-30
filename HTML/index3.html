@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" class="admin">
+<head>
+	<title>Wisconsin Engineer Magazine</title>
+	<meta name="author" content="Joe Kohlmann" />
+	<link href="stylesheets/screen.css" media="all, screen, projection" rel="stylesheet" type="text/css" />
+	<!-- <link href="stylesheets/print.css" media="print" rel="stylesheet" type="text/css" /> -->
+	<!-- CSS Fixes for Internet Explorer -->
+	<!--[if IE]>
+		<link href="stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+	<![endif]-->
+	<!-- jQuery from Google's servers -->
+	<!-- script type="text/javascript" charset="utf-8" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script -->
+	<script type="text/javascript" charset="utf-8" src="scripts/jquery.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="scripts/helpers.js"></script>
+</head>
+
+<body id="home">
+	<div id="headerWrap">
+		<div id="header">
+			<h1><a href="index2.html">Wisconsin Engineer Magazine</a></h1>
+			<!-- <div id="homeLinkWrap" class="buttonWrapper"><a id="homeLink" href="/">Home</a></div> -->
+			<p>Published by the Students of the University of Wisconsin-Madison</p>
+			<form id="searchForm" method="post" action="/search/">
+				<input id="searchBox" type="text" name="searchBox" />
+				<div id="searchSubmit"><input type="submit" value="Search" /></div>
+			</form>
+		</div><!-- End #headerWrap -->
+	</div><!-- End #header -->
+	
+	<div id="wrapper">
+		<ul id="navigation">
+			<li class="first"><a href="index2.html"><span>Home</span></a></li>
+			<li><a href="#past-issues"><span>Past Issues</span></a></li>
+			<li><a href="#subscribe"><span>Subscribe</span></a></li>
+			<li><a href="#advertising"><span>Advertising</span></a></li>
+			<li><a href="#features"><span>Features</span></a></li>
+			<li class="last"><a href="#about-us"><span>About Us</span></a></li>
+		</ul><!-- End #navigation -->
+		
+		<div id="issueContainer">
+			<div id="issue">
+				<dl class="meta">
+					<dt>Issue</dt>
+					<dd><a href="#">February 2010</a></dd>
+					<dt>Volume</dt>
+					<dd><a href="#">14</a></dd>
+					<dt>Number</dt>
+					<dd><a href="#">2</a></dd>
+				</dl><!-- End #meta -->
+				<a class="article wide" id="article-1" href="/articles/1" style="background-image: url(photos/wide.jpg)">
+					<div>
+						<h2>Something in the Water</h2>
+						<p>An Overview of Wisconsin's Water Quality.</p>
+					</div>
+				</a><!--
+				--><a class="article right" href="http://www.apple.com/" style="background-image: url(photos/web.jpg)">
+					<div>
+						<h2>Recovery, Reinvestment, &amp; Research</h2>
+					</div>
+				</a><!--
+				--><a class="article" href="http://www.engadget.com/" style="background-image: url(photos/randall.jpg)">
+					<div>
+						<p>On Campus</p>
+						<h2>What a Vue</h2>
+					</div>
+				</a><!--
+				--><a class="article" href="http://www.wisconsinengineer.com/" style="background-image: url(photos/article2.jpg)">
+					<div>
+						<p>Professor Profile</p>
+						<h2>Brian Pfeleger,<br />Synthesizing The Future</h2>
+					</div>
+				</a><!--
+				--><a class="article right" href="http://www.wisconsinengineer.com/" style="background-image: url(photos/article1.jpg)">
+					<div>
+						<p>3D Movies</p>
+						<h2>Movies in the third dimension</h2>
+					</div>
+				</a>
+			</div><!-- End #issue -->
+		</div><!-- End #issueContainer -->
+	</div><!-- End #wrapper -->
+	<div id="outsideWrapper">
+		<div id="moreArticles">
+			<div class="left">
+				<h2>More Articles</h2>
+				<a class="article" href="http://www.wisconsinengineer.com/">
+					<p>3D Movies</p>
+					<h3>Movies in the third dimension</h3>
+				</a>
+				<a class="article" href="http://www.wisconsinengineer.com/">
+					<p>3D Movies</p>
+					<h3>Movies in the third dimension</h3>
+				</a>
+			</div><!--
+			--><div class="center">
+				<h2>Editorials</h2>
+				<a class="article" href="http://www.wisconsinengineer.com/">
+					<h3>Shoulda, Coulda, Woulda</h3>
+					<p>Matt Stauffer</p>
+				</a>
+			</div><!--
+			--><div>
+				<h2>Announcements</h2>
+				<a class="article" href="http://www.wisconsinengineer.com/">
+					<h3>Shoulda, Coulda, Woulda</h3>
+					<p>Matt Stauffer</p>
+				</a>
+			</div>
+		</div><!-- End #moreArticles -->
+	
+		<div id="footer">
+			<div id="leftInfo">
+				<ul>
+					<li class="copyright">&copy;2010 Wisconsin Engineer Magazine</li>
+					<li class="address">M1066 Engineering Centers Building<br />1550 Engineering Drive, Madison, WI 53706</li>
+				</ul>
+			</div>
+			<div id="centerInfo">
+				<img src="images/logo-footer.png" width="281px" height="52px" alt="Wisconsin Engineer Magazine Logo" />
+			</div>
+			<div id="rightInfo">
+				<ul>
+					<!-- <li id="contact-email"><img src="images/email.gif" width="184px" height="17px" alt="WEM E-Mail Address" /></li> -->
+					<li id="contact-email">wiscengr@cae.wisc.edu</li>
+					<li>608.262.3494</li>
+				</ul>
+			</div>
+		</div><!-- End #footer -->
+	</div><!-- End #outsideWrapper -->
+</body>
+</html>

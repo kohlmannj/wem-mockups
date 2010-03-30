@@ -21,14 +21,14 @@ function searchBoxAddPlaceholderText(placeholderText) {
 }
 
 function animateHovers() {
-	console.log("Non-Safari animation fallback.");
+	// console.log("Non-Safari animation fallback.");
 	// Feature Articles Hover Effect
-	$("#issue a.article").hover(function() {
-		$("img", this).animate({
+	$("#issue a.article").css("opacity", "0.85").hover(function() {
+		$(this).animate({
 			opacity: 1
 		}, 250);
 	}, function() {
-		$("img", this).animate({
+		$(this).animate({
 			opacity: 0.85
 		}, 250);
 	});

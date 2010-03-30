@@ -14,46 +14,58 @@
 *:focus, input:focus, input[type="button"]:focus, *:active, input:active
     outline: 0 !important
 
+html
+    background-color= !bgColorBody
+    
+html.admin
+    background= image_url("bg-admin.gif") "repeat top center" !bgColorBody
+
 body
     +fontGillSans
-    background= !bgColorBody
+    background= image_url("bg-header.gif") "repeat-x top center"
     font-size= !stdFontSize
     margin: 0
     min-width= !bodyWidth + 2 * !stdPadding
     padding: 0
 
+// Gill Sans Styling
+#headerWrap p, #navigation, .meta, a.article p, #moreArticles h2
+    +fontGillSans
+    text-transform: uppercase
+    letter-spacing: 1px
+
 #headerWrap
-    background= image_url("bg-header.gif") "repeat-x"
-    width: 100%
+    width= !bodyWidth
+    padding= "0" !stdPadding / 2
+    margin: 0 auto
+    background= image_url("bg.png") " no-repeat 0 " !headerHeight - !headerPadding - !stdPadding / 2
     height= !headerInteriorHeight
     padding-bottom= !headerPadding
     #header
         margin: 0 auto
         position: relative
-        width= !actualWidth
     h1 a
         +inline-block
-        +replace-text("logo-header.gif", "0", "16px")
+        +replace-text("logo-header.png", "0", "16px")
         width= !headerGraphicWidth
         height= !headerInteriorHeight
-        margin-left= !headerSideOffset - 2px
+        position: absolute
+        left= !headerSideOffset - 2px
     #homeLinkWrap
         left= !headerSideOffset
     p
         color: #fff
-        background= image_url("tagline.gif") "no-repeat"
+        // background= image_url("tagline.gif") "no-repeat"
         text-shadow: 0 -1px 0 rgba(0,0,0,0.35)
         font-size: 10px
         width: 212px
         overflow: hidden
         height: 28px
         position: absolute
-        top= !headerButtonTopOffset - 3px
-        right: 237px
+        top= !headerButtonTopOffset - 2px
+        right: 221px
         line-height= !interfaceFontSize
         text-align: center
-        text-transform: uppercase
-        text-indent: -9999px
     #searchForm
         background= image_url("search.gif") "no-repeat"
         width: 159px
@@ -106,53 +118,47 @@ body
     #homeLink
         background= !bgColorNavButton image_url("nav-buttons.gif") "no-repeat center -96px"
         color= !textColor
-        text-transform: uppercase
         &:hover, &:focus
             background-position: center -128px
         &:active
             background-position: center -160px
 
 #navigation
-    !navLinkBgOffset = (6 * !navButtonHeight)
     +column(!blueprint_grid_columns)
     +etchedText
-    +fontGillSans
-    background= image_url("bg-content.gif") "no-repeat top left"
-    // float: left
+    background= !bgColorNavButton
     font-size= !interfaceFontSize
     :margin
-        top=    -(!wrapperPadding + !stdPadding)
-        right=  -(!wrapperPadding + !stdPadding)
+        top=    -(!wrapperPadding - !navMargin)
+        right=  -(!wrapperPadding - !navMargin)
         bottom= !stdPadding
-        left=   -(!wrapperPadding + !stdPadding)
-    :padding
-        top=    (!navMargin + !stdPadding)
-        right=  (!navMargin + !stdPadding)
-        left=   (!navMargin + !stdPadding)
+        left=   -(!wrapperPadding - !navMargin)
+    // :padding
+    //     top=    (!navMargin)
+    //     right=  (!navMargin)
+    //     left=   (!navMargin)
     width= !bodyWidth - 2 * !navMargin
     overflow: hidden
     li
         display: inline
     a
-        background= image_url("nav-buttons.gif") "no-repeat -16px " (0 - !navLinkBgOffset)
+        background= image_url("bg-nav-button.png") "no-repeat -16px " (0 - !navLinkBgOffset) !bgColorNavButton
         color= !textColor
         float: left
         height= !navButtonHeight
-        letter-spacing: 1px
         line-height= !navButtonHeight
         text-align: center
         text-decoration: none
-        text-transform: uppercase
         width= !navLinkWidth
+        -webkit-transition: background-color 0.25s ease-in-out
         span
             +inline-block
             width= !navLinkWidth - !navBorderWidth
             border-right= !navBorderWidth "solid #fff"
         &:hover, &:focus
-            background-position= "-16px " -(!navButtonHeight + !navLinkBgOffset)
+            background-color= !bgColorNavButtonHover
         &:active
-            background-position= "-16px " -(2 * !navButtonHeight + !navLinkBgOffset)
-    // Crazy-ass hacks to get the border lines to line up cleanly.
+            background-color= !bgColorNavButtonActive
     li.last a
         span
             border-right: 0
@@ -160,34 +166,26 @@ body
     li.first a
         margin-left: 0
         background-position= "left " (0 - !navLinkBgOffset)
-        &:hover, &:focus
-            background-position= "left " -(!navButtonHeight + !navLinkBgOffset)
-        &:active
-            background-position= "left " -(2 * !navButtonHeight + !navLinkBgOffset)
     li.last a
         background-position= "right " (0 - !navLinkBgOffset)
-        // Fixes a width rounding error with 1000px width and 6 items.
-        &:hover, &:focus
-            background-position= "right  " -(!navButtonHeight + !navLinkBgOffset)
-        &:active
-            background-position= "right " -(2 * !navButtonHeight + !navLinkBgOffset)
 
 // "+ !stdPadding" accounts for the 16px margin in background images for shadow
 #wrapper
     +container
     +fontGeorgia
-    background= image_url("bg-content.gif") "repeat-y top right"
+    overflow: visible
+    background= image_url("bg.png") "repeat-y top center"
     line-height= !stdLineHeight
     :margin
-        top=    -(!headerPadding + !stdPadding)
+        top=    -!headerPadding + !stdPadding / 2
         right:  auto
         bottom: 0
         left:   auto
     :padding
-        top=    (!wrapperPadding + !stdPadding)
-        right=  (!wrapperPadding + !stdPadding)
+        top=    !wrapperPadding - 8px
+        right=  (!wrapperPadding + !stdPadding / 2)
         bottom: 0
-        left=   (!wrapperPadding + !stdPadding)
+        left=   (!wrapperPadding + !stdPadding / 2)
     position: relative
     text-align: left
     z-index: 1
@@ -225,12 +223,9 @@ body
     #introduction h2, .caption, #content p
         margin-bottom= !stdLineHeight
     .meta
-        +fontGillSans
-        letter-spacing: 1px
         color= !textColorGray
         margin= -!stdLineHeight " 0 " !wrapperPadding
         text-align: center
-        text-transform: uppercase
         dt, dd
             display: inline
         dd + dt
@@ -284,14 +279,22 @@ body#home
     .meta
         line-height= !issuePadding
         margin: 0
+    #footer
+        +borderRadius(8px)
+        margin-bottom= !stdPadding
 
 a.article
+    +opacity(0.85)
+    -webkit-transition: opacity 0.25s ease-in-out
     display: block
     overflow: hidden
     position: relative
     padding= !issuePadding
     text-decoration: none
     width= !articleWidth
+    background-position: center top
+    background-repeat: no-repeat
+    background-color: #000
     div
         background= image_url("bg-feature-color.png")
         padding= !issuePadding
@@ -310,20 +313,17 @@ a.article
         line-height: 24px
         max-height= (2 * 24px) + 2px
     p
-        +fontGillSans
-        letter-spacing: 1px
         line-height= !stdLineHeight
         max-height= (2 * (!stdLineHeight))
-        text-transform: uppercase
     img
-        -webkit-transition: opacity 0.25s ease-in-out
-        +opacity(0.85)
         width= !articleWidth + (2 * !issuePadding)
         position: absolute
         left: 0
         top: 0
-    &:hover img
+    &:hover
         +opacity(1)
+    &.right, &.right div
+        padding-right= !issuePadding + 1px
     &.wide, &.full
         width= 2 * !articleWidth + 2 * !issuePadding + !navBorderWidth
         img
@@ -344,10 +344,9 @@ a.article
     :margin
         right=  (-!wrapperPadding + !navMargin)
         left=   (-!wrapperPadding + !navMargin)
-        bottom= !navMargin
 
 #issue
-    width= !bodyWidth - 2 * !navMargin + !navBorderWidth
+    width= !bodyWidth - 2 * !navMargin + !navBorderWidth + !stdPadding
     margin-left= -!navBorderWidth
     position: relative
     text-shadow: 0 1px 2px rgba(0,0,0,0.65)
@@ -362,9 +361,11 @@ a.article
             color= !bgColorWrapper
     .article
         color= !bgColorWrapper
-        background: #000
-        border-top: 1px solid #fff
-        border-left: 1px solid #fff
+        // background: #000
+        // border-top: 1px solid transparent
+        // border-left: 1px solid transparent
+        margin-top= !navBorderWidth
+        margin-left= !navBorderWidth
         height= (200px - 2 * !issuePadding)
         +inline-block
         img
@@ -382,52 +383,51 @@ a.article
     clear: both
     +etchedText
     :margin
+        top= -(!stdPadding / 2)
         left= -(!wrapperPadding + 16px)
         right= -(!wrapperPadding + 16px)
+        bottom= !issuePadding
     :padding
         left=   16px + !navMargin
         right=  16px + !navMargin
-        bottom= !issuePadding
     &>div
+        +inline-block
         width= !articleWidth + 2 * !issuePadding
-        float: left
-        border-left= "1px solid " !bgColorBody
+        border-left: 1px solid transparent
         &.left
             border-left: 0
     a.article
         color: #000
-        border-color= !bgColorBody
+        border-color: transparent
         padding= !issuePadding / 4 " " !issuePadding / 2
         margin= !issuePadding / 4 " " !issuePadding / 2
         +webKitTransition("background-color")
-        background= !bgColorBody
+        background= rgba(255,255,255,0)
         +borderRadius(8px)
         &:hover
-            background= !bgColorNavButton
+            background= rgba(255,255,255,0.5)
     h2
         font-size= !stdFontSize
-        +fontGillSans
         color= !textColorGray
-        letter-spacing: 1px
-        text-transform: uppercase
         text-align: center
-        margin-top= -(!issuePadding / 2)
+        // margin-top= -(!issuePadding / 2)
+        margin-bottom= !issuePadding / 2
 
 #outsideWrapper
     +container
-    background= image_url("bg-bottom.png") "no-repeat"
+    background= image_url("bg.png") "no-repeat top right"
     position: relative
-    z-index: 1
+    z-index: 2
     :margin
-        top=    -8px
+        top=    -!navMargin
         right:  auto
         bottom: 0
         left:   auto
     :padding
-        top=    8px + !issuePadding
-        right=  (!wrapperPadding + !stdPadding)
+        top=    16px + !issuePadding
+        right=  (!wrapperPadding + !stdPadding / 2)
         bottom: 0
-        left=   (!wrapperPadding + !stdPadding)
+        left=   (!wrapperPadding + !stdPadding / 2)
 
 #sidebar
     +etchedText
@@ -453,8 +453,9 @@ a.article
             line-height= !sidebarLineHeight
             padding= !sidebarLinkPadding
             padding-left= !stdPadding
-            text-decoration: none            
+            text-decoration: none
         dt
+            letter-spacing: 1px
             text-transform: uppercase
             color= !textColorGray
     
@@ -466,28 +467,29 @@ a.article
         margin-top= !wrapperPadding - !stdPadding
 
 #footer
+    // +etchedText
     // #footer gets different blueprint parameters...
     // Make sure this is the last blueprint-related mixin used!
-    !blueprint_container_size = !bodyWidth - (2 * !stdPadding)
-    !blueprint_grid_margin  = !stdPadding
+    // !blueprint_container_size = !bodyWidth - (2 * !stdPadding)
+    // !blueprint_grid_margin  = !stdPadding
     // Use this to calculate the width based on the total width.
     // Or you can set !blueprint_grid_width to a fixed value and unset !blueprint_container_size -- it will be calculated for you.
-    !blueprint_grid_width       = (!blueprint_container_size + !blueprint_grid_margin) / !blueprint_grid_columns - !blueprint_grid_margin
+    // !blueprint_grid_width       = (!blueprint_container_size + !blueprint_grid_margin) / !blueprint_grid_columns - !blueprint_grid_margin
     +shadowedText(-1px)
-    +container
-    +fontGillSans
-    border-top: 1px solid #666
-    text-transform: uppercase
+    // +container
     line-height= !footerLineHeight
     clear: both
     font-size= !interfaceFontSize
     text-align: center
     color= !bgColorBody
+    +fontGillSans
+    letter-spacing: 1px
+    // color= !textColorGray
     background= image_url("bg-footer.gif") "repeat-x"
     // background= !bgColorBody
     height= 3 * !footerLineHeight
     overflow: hidden
-    padding= !stdPadding
+    padding= !stdPadding !navMargin
     margin= "0 " -!wrapperPadding
     p
         margin: 0
@@ -495,23 +497,39 @@ a.article
     a
         color: #fff
         text-decoration: underline
-        
+    div
+        float: left
+        height= 3 * !footerLineHeight
+        overflow: hidden
+        width= 2 * !navLinkWidth - (2 * !issuePadding)
+        padding= "0" !issuePadding
     #leftInfo
-        +column(11)
+        // width= 2 * !navLinkWidth
         text-align: right
         
     #centerInfo
-        +column(10)
+        // padding= "0" !issuePadding + 1px
+        // width= 2 * !navLinkWidth
 
     #rightInfo
-        +column(11, true)
+        // width= 2 * !navLinkWidth
         text-align: left
-        padding= (!footerLineHeight / 2) " 0"
+        height= 2 * !footerLineHeight
+        padding= !footerLineHeight / 2 !issuePadding
+        // padding= (!footerLineHeight / 2) " 0"
         
     #centerInfo
         text-align: center
-        
-    #contact-email
-        height: 17px
-        line-height: 0
-        margin-left: -2px
+
+html.admin body
+    background-image= image_url("bg-header-admin.gif")
+    #navigation
+        background= image_url("bg-nav-admin.gif") "center " -!navMargin
+        a
+            // IE Fix
+            background-color: transparent
+            background-color: rgba(255,212,0,0.5)
+            &:hover, &:focus
+                background-color: rgba(255,212,0,0.8)
+            &:active
+                background-color: rgba(255,212,0,0.2)
