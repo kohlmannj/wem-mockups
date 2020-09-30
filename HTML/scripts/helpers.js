@@ -18,6 +18,7 @@ function searchBoxAddPlaceholderText(placeholderText) {
 			$(this).addClass("placeholder").attr("value", placeholderText);
 		}
 	});
+	
 }
 
 function animateHovers() {
@@ -25,7 +26,8 @@ function animateHovers() {
 	// Feature Articles Hover Effect
 	$("#issue a.article").css("opacity", "0.85").hover(function() {
 		$(this).animate({
-			opacity: 1
+			opacity: 0.9
+			
 		}, 250);
 	}, function() {
 		$(this).animate({
